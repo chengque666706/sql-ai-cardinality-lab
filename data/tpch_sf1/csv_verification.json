@@ -1,0 +1,62 @@
+{
+  "method": "Compare row count and order-independent XOR of DuckDB hashes of typed row structs. This is a content consistency check, not a cryptographic proof.",
+  "duckdb_version": "1.5.6",
+  "tables": {
+    "region": {
+      "source_rows": 5,
+      "csv_rows": 5,
+      "source_row_hash_xor": 13085295137878666315,
+      "csv_row_hash_xor": 13085295137878666315,
+      "match": true
+    },
+    "nation": {
+      "source_rows": 25,
+      "csv_rows": 25,
+      "source_row_hash_xor": 13125213827292485496,
+      "csv_row_hash_xor": 13125213827292485496,
+      "match": true
+    },
+    "supplier": {
+      "source_rows": 10000,
+      "csv_rows": 10000,
+      "source_row_hash_xor": 6228199743766842819,
+      "csv_row_hash_xor": 6228199743766842819,
+      "match": true
+    },
+    "customer": {
+      "source_rows": 150000,
+      "csv_rows": 150000,
+      "source_row_hash_xor": 12618707733335247387,
+      "csv_row_hash_xor": 12618707733335247387,
+      "match": true
+    },
+    "part": {
+      "source_rows": 200000,
+      "csv_rows": 200000,
+      "source_row_hash_xor": 5730391580472423991,
+      "csv_row_hash_xor": 5730391580472423991,
+      "match": true
+    },
+    "partsupp": {
+      "source_rows": 800000,
+      "csv_rows": 800000,
+      "source_row_hash_xor": 16533070786280117079,
+      "csv_row_hash_xor": 16533070786280117079,
+      "match": true
+    },
+    "orders": {
+      "source_rows": 1500000,
+      "csv_rows": 1500000,
+      "source_row_hash_xor": 5470267457702865892,
+      "csv_row_hash_xor": 5470267457702865892,
+      "match": true
+    },
+    "lineitem": {
+      "source_rows": 6001215,
+      "csv_rows": 6001215,
+      "source_row_hash_xor": 3944753436594036139,
+      "csv_row_hash_xor": 3944753436594036139,
+      "match": true
+    }
+  }
+}
