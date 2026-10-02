@@ -1,0 +1,66 @@
+[
+  {
+    "schemaname": "synthetic",
+    "tablename": "corr_dependent",
+    "statistics_name": "st_corr_dependent_city_zip",
+    "attnames": [
+      "city",
+      "zipcode"
+    ],
+    "kinds": [
+      "d",
+      "f",
+      "m"
+    ],
+    "n_distinct": "{\"2, 3\": 100}",
+    "dependencies": "{\"2 => 3\": 1.000000, \"3 => 2\": 1.000000}"
+  },
+  {
+    "schemaname": "synthetic",
+    "tablename": "corr_independent",
+    "statistics_name": "st_corr_independent_city_zip",
+    "attnames": [
+      "city",
+      "zipcode"
+    ],
+    "kinds": [
+      "d",
+      "f",
+      "m"
+    ],
+    "n_distinct": "{\"2, 3\": 10000}",
+    "dependencies": null
+  },
+  {
+    "schemaname": "synthetic",
+    "tablename": "corr_skewed",
+    "statistics_name": "st_corr_skewed_city_zip",
+    "attnames": [
+      "city",
+      "zipcode"
+    ],
+    "kinds": [
+      "d",
+      "f",
+      "m"
+    ],
+    "n_distinct": "{\"2, 3\": 100}",
+    "dependencies": "{\"2 => 3\": 1.000000, \"3 => 2\": 1.000000}"
+  },
+  {
+    "schemaname": "synthetic",
+    "tablename": "cross_orders",
+    "statistics_name": "st_cross_orders_customer_zip",
+    "attnames": [
+      "customer_id",
+      "zipcode"
+    ],
+    "kinds": [
+      "d",
+      "f",
+      "m"
+    ],
+    "n_distinct": "{\"2, 3\": 10000}",
+    "dependencies": "{\"2 => 3\": 1.000000}"
+  }
+]

@@ -1,0 +1,16 @@
+﻿phase,group,n_queries,n_positive,n_zero,q_error_p50,q_error_p90,q_error_p99,q_error_max
+baseline,independent,2,2,0,1.0,1.0,1.0,1.0
+baseline,correlated,3,2,1,50.5,90.1,99.01,100.0
+baseline,skew,2,2,0,95.6875,170.6375,187.50125,189.375
+baseline,cross_table,1,1,0,100.0,100.0,100.0,100.0
+baseline,single,5,5,0,1.0029983013738444,1.053947301544274,1.0600270226770239,1.0607025472473295
+baseline,simple_join,3,3,0,1.0101010101010102,1.0333346725133306,1.0385622465561029,1.0391430881164108
+baseline,multi_join,4,4,0,1.0661157242131978,7.596623836205081,10.093280785271936,10.370687112946033
+reanalyze_control,independent,2,2,0,1.0,1.0,1.0,1.0
+reanalyze_control,correlated,3,2,1,50.5,90.1,99.01,100.0
+reanalyze_control,skew,2,2,0,95.6875,170.6375,187.50125,189.375
+reanalyze_control,cross_table,1,1,0,100.0,100.0,100.0,100.0
+extended,independent,2,2,0,1.0,1.0,1.0,1.0
+extended,correlated,3,2,1,1.0,1.0,1.0,1.0
+extended,skew,2,2,0,1.0,1.0,1.0,1.0
+extended,cross_table,1,1,0,100.0,100.0,100.0,100.0

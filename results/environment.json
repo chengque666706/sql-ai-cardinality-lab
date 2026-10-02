@@ -1,0 +1,29 @@
+{
+  "timestamp_shanghai": "2026-10-02T12:45:19.297333+08:00",
+  "postgresql": "PostgreSQL 17.6 (Debian 17.6-2.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+  "host_platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.14",
+  "warmups": 1,
+  "measured_repeats": 3,
+  "random_seed": 20261002,
+  "session_settings_sql": "SET search_path=tpch,synthetic,public;\nSET max_parallel_workers_per_gather=0; SET jit=off;\nSET work_mem='64MB'; SET default_statistics_target=100;\nSET statement_timeout='180s'; SET timezone='Asia/Shanghai';",
+  "data_scale_factor": 1,
+  "query_count": 20,
+  "docker_image": [
+    "postgres@sha256:00bc86618629af00d2937fdc5a5d63db3ff8450acf52f0636ec813c7f4902929"
+  ],
+  "settings": {
+    "autovacuum": "off",
+    "block_size": "8192",
+    "cpu_tuple_cost": "0.01",
+    "default_statistics_target": "100",
+    "effective_cache_size": "524288",
+    "jit": "off",
+    "max_parallel_workers_per_gather": "0",
+    "random_page_cost": "4",
+    "seq_page_cost": "1",
+    "server_version": "17.6 (Debian 17.6-2.pgdg13+1)",
+    "shared_buffers": "32768",
+    "work_mem": "65536"
+  }
+}

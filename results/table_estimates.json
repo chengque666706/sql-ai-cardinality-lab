@@ -1,0 +1,67 @@
+[
+  {
+    "schemaname": "synthetic",
+    "relname": "corr_dependent",
+    "n_live_tup": 300000
+  },
+  {
+    "schemaname": "synthetic",
+    "relname": "corr_independent",
+    "n_live_tup": 300000
+  },
+  {
+    "schemaname": "synthetic",
+    "relname": "corr_skewed",
+    "n_live_tup": 300000
+  },
+  {
+    "schemaname": "synthetic",
+    "relname": "cross_customers",
+    "n_live_tup": 10000
+  },
+  {
+    "schemaname": "synthetic",
+    "relname": "cross_orders",
+    "n_live_tup": 300000
+  },
+  {
+    "schemaname": "tpch",
+    "relname": "customer",
+    "n_live_tup": 150000
+  },
+  {
+    "schemaname": "tpch",
+    "relname": "lineitem",
+    "n_live_tup": 6001741
+  },
+  {
+    "schemaname": "tpch",
+    "relname": "nation",
+    "n_live_tup": 25
+  },
+  {
+    "schemaname": "tpch",
+    "relname": "orders",
+    "n_live_tup": 1500000
+  },
+  {
+    "schemaname": "tpch",
+    "relname": "part",
+    "n_live_tup": 200000
+  },
+  {
+    "schemaname": "tpch",
+    "relname": "partsupp",
+    "n_live_tup": 800000
+  },
+  {
+    "schemaname": "tpch",
+    "relname": "region",
+    "n_live_tup": 5
+  },
+  {
+    "schemaname": "tpch",
+    "relname": "supplier",
+    "n_live_tup": 10000
+  }
+]

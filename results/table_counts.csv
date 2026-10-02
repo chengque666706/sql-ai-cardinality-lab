@@ -1,0 +1,14 @@
+﻿schema,table,rows
+synthetic,corr_dependent,300000
+synthetic,corr_independent,300000
+synthetic,corr_skewed,300000
+synthetic,cross_customers,10000
+synthetic,cross_orders,300000
+tpch,customer,150000
+tpch,lineitem,6001215
+tpch,nation,25
+tpch,orders,1500000
+tpch,part,200000
+tpch,partsupp,800000
+tpch,region,5
+tpch,supplier,10000
