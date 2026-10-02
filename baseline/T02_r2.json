@@ -1,0 +1,56 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Seq Scan",
+      "Parallel Aware": false,
+      "Async Capable": false,
+      "Relation Name": "orders",
+      "Schema": "tpch",
+      "Alias": "orders",
+      "Startup Cost": 0.0,
+      "Total Cost": 49212.0,
+      "Plan Rows": 20654,
+      "Plan Width": 8,
+      "Actual Startup Time": 0.023,
+      "Actual Total Time": 72.991,
+      "Actual Rows": 19472,
+      "Actual Loops": 1,
+      "Output": [
+        "o_orderkey"
+      ],
+      "Filter": "((orders.o_orderdate >= '1995-01-01'::date) AND (orders.o_orderdate < '1995-02-01'::date))",
+      "Rows Removed by Filter": 1480528,
+      "Shared Hit Blocks": 16753,
+      "Shared Read Blocks": 9959,
+      "Shared Dirtied Blocks": 0,
+      "Shared Written Blocks": 0,
+      "Local Hit Blocks": 0,
+      "Local Read Blocks": 0,
+      "Local Dirtied Blocks": 0,
+      "Local Written Blocks": 0,
+      "Temp Read Blocks": 0,
+      "Temp Written Blocks": 0
+    },
+    "Settings": {
+      "work_mem": "64MB",
+      "max_parallel_workers_per_gather": "0",
+      "jit": "off",
+      "search_path": "tpch, synthetic, public"
+    },
+    "Planning": {
+      "Shared Hit Blocks": 76,
+      "Shared Read Blocks": 0,
+      "Shared Dirtied Blocks": 0,
+      "Shared Written Blocks": 0,
+      "Local Hit Blocks": 0,
+      "Local Read Blocks": 0,
+      "Local Dirtied Blocks": 0,
+      "Local Written Blocks": 0,
+      "Temp Read Blocks": 0,
+      "Temp Written Blocks": 0
+    },
+    "Planning Time": 0.141,
+    "Triggers": [],
+    "Execution Time": 73.491
+  }
+]
