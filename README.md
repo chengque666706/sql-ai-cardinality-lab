@@ -1,6 +1,6 @@
 # SQL 与 AI 协同优化基数估计实验
 
-本仓库完成数据库课程小组成员 **B 的 PostgreSQL 实验采集** 和 **C 的基数误差分析**。在真实 PostgreSQL 17.6 中运行 TPC-H SF=1 派生查询和可控合成场景，保存完整执行计划、节点数据、图表和报告。
+本仓库完成数据库课程小组成员 **B 的 PostgreSQL 实验采集**、**C 的基数误差分析** 和 **D 的执行计划影响与典型案例分析**。在真实 PostgreSQL 17.6 中运行 TPC-H SF=1 派生查询和可控合成场景，保存完整执行计划、节点数据、图表和报告。
 
 本轮完成 20 条 SQL、36 个查询配置组合、144 次计划采集（36 次预热、108 次正式测量），保留 364 条节点记录。未训练 AI 模型；查询不是官方 TPC-H 查询集，不报告 TPC-H 性能评分。
 
@@ -8,11 +8,13 @@
 
 - [B 和 C 成员实验报告 PDF](reports/B和C成员实验报告.pdf)
 - [可编辑报告正文](reports/实验报告.md)
+- [成员D 执行计划影响分析](reports/成员D_执行计划影响分析.md) · [成员D 交付物说明](reports/成员D_交付物说明.md)
 - [实验环境说明](reports/实验环境说明.md) · [20 条 SQL 查询清单](reports/SQL查询清单.md)
 - [查询汇总](results/query_summary.csv) · [Q-error 分组统计](results/qerror_statistics.csv)
 - [逐次原始结果](results/query_runs.csv) · [全部节点记录](results/node_runs.csv) · [原始 JSON 执行计划](results/plans)
+- [D 四案例节点级指标表](results/D_典型案例节点级指标表.csv)（自 node_runs.csv 筛选，27 条记录）
 - [数据核验](reports/数据核验.md) · [字段说明](reports/数据字段说明.md)
-- [5 张高清 PNG 和 SVG 图](figures)
+- [8 张高清 PNG 和 SVG 图](figures)：B 基础图 2 张、C 分析图 3 张、D 案例图 D01~D03（T09/S20 执行计划树与影响链路）
 
 | 典型案例 | 基线 Q-error | 扩展统计后 | 观察 |
 | --- | ---: | ---: | --- |
@@ -74,10 +76,10 @@ docker stop sql-ai-cardinality-lab-pg
 ## 目录
 
 ```text
-scripts/       数据生成、采集、分析、校验及 PDF 构建
+scripts/       数据生成、采集、分析、校验、PDF 构建及 D 案例图生成
 sql/           TPC-H schema、约束、合成数据和扩展统计
 results/       环境、数据来源、原始 JSON、CSV 和统计快照
-figures/       B 的 2 张基础图与 C 的 3 张分析图
+figures/       B 的 2 张基础图、C 的 3 张分析图与 D 的 3 张案例图
 reports/       实验报告、环境、SQL、字段口径与校验说明
 data/          本地生成数据，Git 忽略
 compose.yaml   固定镜像摘要的隔离 PostgreSQL 环境
