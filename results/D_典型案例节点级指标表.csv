@@ -1,0 +1,28 @@
+﻿phase,query_id,repeat,node_path,node_type,relation,plan_rows_per_loop,actual_rows_per_loop,actual_loops,actual_rows_total_approx,q_error,total_cost,actual_total_time_ms_per_loop,filter,hash_cond,index_cond,plan_file
+baseline,S16,1,0,Seq Scan,corr_dependent,30,3000,1,3000,100.0,6122.0,10.489,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,plans/baseline/S16_r1.json
+extended,S16,1,0,Seq Scan,corr_dependent,3000,3000,1,3000,1.0,6122.0,9.528,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,plans/extended/S16_r1.json
+reanalyze_control,S16,1,0,Seq Scan,corr_dependent,30,3000,1,3000,100.0,6122.0,9.733,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,plans/reanalyze_control/S16_r1.json
+baseline,S20,1,0,Hash Join,,30,3000,1,3000,100.0,5551.12,16.521,,(o.customer_id = c.id),,plans/baseline/S20_r1.json
+baseline,S20,1,0.0,Seq Scan,cross_orders,3000,3000,1,3000,1.0,5372.0,15.758,(o.zipcode = 'Z00'::text),,,plans/baseline/S20_r1.json
+baseline,S20,1,0.1,Hash,,100,100,1,100,1.0,170.0,0.443,,,,plans/baseline/S20_r1.json
+baseline,S20,1,0.1.0,Seq Scan,cross_customers,100,100,1,100,1.0,170.0,0.431,(c.city = 'C00'::text),,,plans/baseline/S20_r1.json
+extended,S20,1,0,Hash Join,,30,3000,1,3000,100.0,5551.12,13.573,,(o.customer_id = c.id),,plans/extended/S20_r1.json
+reanalyze_control,S20,1,0,Hash Join,,30,3000,1,3000,100.0,5551.12,13.085,,(o.customer_id = c.id),,plans/reanalyze_control/S20_r1.json
+baseline,T09,1,0,Hash Join,,316503,30519,1,30519,10.370687112946033,256097.78,698.419,,(l.l_orderkey = o.o_orderkey),,plans/baseline/T09_r1.json
+baseline,T09,1,0.0,Seq Scan,lineitem,3247322,3241776,1,3241776,1.001710790628347,185629.76,370.965,(l.l_shipdate > '1995-03-15'::date),,,plans/baseline/T09_r1.json
+baseline,T09,1,0.1,Hash,,146199,147126,1,147126,1.0063406726448196,53298.04,158.451,,,,plans/baseline/T09_r1.json
+baseline,T09,1,0.1.0,Hash Join,,146199,147126,1,147126,1.0063406726448196,53298.04,142.626,,(o.o_custkey = c.c_custkey),,plans/baseline/T09_r1.json
+baseline,T09,1,0.1.0.0,Seq Scan,orders,728685,727305,1,727305,1.0018974158021738,45462.0,82.979,(o.o_orderdate < '1995-03-15'::date),,,plans/baseline/T09_r1.json
+baseline,T09,1,0.1.0.1,Hash,,30095,30142,1,30142,1.001561721216149,5547.0,11.94,,,,plans/baseline/T09_r1.json
+baseline,T09,1,0.1.0.1.0,Seq Scan,customer,30095,30142,1,30142,1.001561721216149,5547.0,9.854,((c.c_mktsegment)::text = 'BUILDING'::text),,,plans/baseline/T09_r1.json
+baseline,T11,1,0,Nested Loop,,182589,184082,1,184082,1.0081768343109387,110921.9,359.257,,,,plans/baseline/T11_r1.json
+baseline,T11,1,0.0,Nested Loop,,45634,46008,1,46008,1.0081956435990709,53840.21,233.744,,,,plans/baseline/T11_r1.json
+baseline,T11,1,0.0.0,Hash Join,,30000,30183,1,30183,1.0061,6037.01,20.396,,(c.c_nationkey = n.n_nationkey),,plans/baseline/T11_r1.json
+baseline,T11,1,0.0.0.0,Seq Scan,customer,150000,150000,1,150000,1.0,5172.0,9.052,,,,plans/baseline/T11_r1.json
+baseline,T11,1,0.0.0.1,Hash,,5,5,1,5,1.0,2.45,0.031,,,,plans/baseline/T11_r1.json
+baseline,T11,1,0.0.0.1.0,Hash Join,,5,5,1,5,1.0,2.45,0.029,,(n.n_regionkey = r.r_regionkey),,plans/baseline/T11_r1.json
+baseline,T11,1,0.0.0.1.0.0,Seq Scan,nation,25,25,1,25,1.0,1.25,0.005,,,,plans/baseline/T11_r1.json
+baseline,T11,1,0.0.0.1.0.1,Hash,,1,1,1,1,1.0,1.06,0.015,,,,plans/baseline/T11_r1.json
+baseline,T11,1,0.0.0.1.0.1.0,Seq Scan,region,1,1,1,1,1.0,1.06,0.011,((r.r_name)::text = 'ASIA'::text),,,plans/baseline/T11_r1.json
+baseline,T11,1,0.0.1,Index Scan,orders,3,2,30183,60366,1.5,1.56,0.007,((o.o_orderdate >= '1994-01-01'::date) AND (o.o_orderdate < '1995-01-01'::date)),,(o.o_custkey = c.c_custkey),plans/baseline/T11_r1.json
+baseline,T11,1,0.1,Index Only Scan,lineitem,15,4,46008,184032,3.75,1.1,0.002,,,(l.l_orderkey = o.o_orderkey),plans/baseline/T11_r1.json
