@@ -1,0 +1,11 @@
+【经典 / 基础工作】
+1. Kipf A., Kipf T., Radke B., Leis V., Boncz P., Kemper A. Learned Cardinalities: Estimating Correlated Joins with Deep Learning. CIDR 2019. https://arxiv.org/abs/1809.00677
+2. Hilprecht B., Schmidt A., Kulessa M., Molina A., Kersting K., Binnig C. DeepDB: Learn from Data, not from Queries! PVLDB 13(7):992–1005, 2020. https://arxiv.org/abs/1909.00607
+3. Yang Z., Kamsetty A., Luan S., Liang E., Duan Y., Chen X., Stoica I. NeuroCard: One Cardinality Estimator for All Tables. PVLDB 14(1):61–73, 2020/2021. https://www.vldb.org/pvldb/vol14/p61-yang.pdf
+4. Negi P., Marcus R., Kipf A., et al. Flow-Loss: Learning Cardinality Estimates That Matter. 2021. https://arxiv.org/abs/2101.04964
+5. Wu Z., Negi P., Alizadeh M., Kraska T., Madden S. FactorJoin: A New Cardinality Estimation Framework for Join Queries. PACMMOD/SIGMOD 2023. https://doi.org/10.1145/3588721
+
+【2024–2026 更新工作】
+6. Li P., Wei W., Zhu R., Ding B., Zhou J., Lu H. ALECE: An Attention-based Learned Cardinality Estimator for SPJ Queries on Dynamic Workloads. PVLDB 17(2):197–210, VLDB 2024 research cycle. https://www.vldb.org/pvldb/vol17/p197-li.pdf
+7. Zeng T., Lan J., Ma J., Wei W., Zhu R., et al. PRICE: A Pretrained Model for Cross-Database Cardinality Estimation. PVLDB 18(3):637–650, 2024. https://www.vldb.org/pvldb/vol18/p637-zhu.pdf
+8. Xu X., Kang R., He X., Zhang L., Chen J., Zhang T. ZeroCard: Cardinality Estimation with Zero Dependence on Target Databases—No Data, No Query, No Retraining. arXiv preprint, 2025. https://arxiv.org/abs/2510.07983
