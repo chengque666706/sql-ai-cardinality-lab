@@ -46,6 +46,8 @@ python scripts/build_pdf.py
 
 **仓库附带本次真实 results。** 如需重新采集，先把 `results` 整个目录备份到仓库外，再执行 `--collect`；脚本发现旧结果会拒绝覆盖。首次在新数据库同时使用 `--init --collect`，已有实验数据库使用 `--collect`。数据生成脚本也拒绝覆盖已有 DuckDB 表，重建前请自行备份旧数据。
 
+仓库当前保存两批采集：`results/`、`data/tpch_sf1/` 与全部报告、图表对应 **2026-10-04 采集**（本轮）；根目录 `baseline/`、`extended/`、`reanalyze_control/` 计划副本与 `experiment_run.log` 为 **2026-10-02 首轮采集**的存档。两轮数据由确定性生成规则产生、完全一致，核心基数结论相同，仅 `ANALYZE` 采样带来的个别估计值（如 T09 估计行数）与各次计时不同。引用实验数字时以 `results/` 与报告为准。
+
 `generate_tpch.py` 首次下载官方 core tpch 扩展并生成 8 张表。若网络要求代理，按当前网络环境配置。运行不依赖付费服务或数据库插件。生成数据和本地依赖不上传 GitHub，数据版本、schema、CSV 哈希和校验证据保留在仓库中。
 
 图表在 Windows 自动使用微软雅黑或黑体。其他操作系统应安装 CJK 中文字体并让 Matplotlib 使用它；PDF 构建器的字体要求及命令见脚本说明。报告正文包含本次结果，重新采集后必须依据新 CSV 更新正文中的数字，再生成 PDF。

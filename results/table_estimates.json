@@ -32,7 +32,7 @@
   {
     "schemaname": "tpch",
     "relname": "lineitem",
-    "n_live_tup": 6001741
+    "n_live_tup": 6000296
   },
   {
     "schemaname": "tpch",

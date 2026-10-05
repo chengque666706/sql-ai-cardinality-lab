@@ -5,24 +5,24 @@
     "https://github.com/duckdb/duckdb/tree/v1.5.6/extension/tpch"
   ],
   "duckdb_version": "1.5.6",
-  "python_version": "3.12.14",
+  "python_version": "3.12.15",
   "platform": "Windows-11-10.0.26200-SP0",
-  "scale_factor": 1,
-  "generation_command": "CALL dbgen(sf=1)",
+  "scale_factor": 1.0,
+  "generation_command": "CALL dbgen(sf=1.0)",
   "extension": [
     {
       "extension_name": "tpch",
       "loaded": true,
       "installed": true,
-      "install_path": "D:\\数据库小组作业\\实验工作区\\.duckdb_extensions\\v1.5.6\\windows_amd64\\tpch.duckdb_extension",
+      "install_path": "E:\\野鸡大学\\5大三上\\数据库小组作业\\sql-ai-cardinality-lab\\.duckdb_extensions\\v1.5.6\\windows_amd64\\tpch.duckdb_extension",
       "description": "Adds TPC-H data generation and query support",
-      "aliases": "[]",
+      "aliases": [],
       "extension_version": "v1.5.6",
       "install_mode": "REPOSITORY",
       "installed_from": "core"
     }
   ],
-  "started_at_utc": "2026-10-02T04:40:12.900861+00:00",
+  "started_at_utc": "2026-10-04T10:04:27.720063+00:00",
   "export_format": {
     "format": "CSV",
     "delimiter": "|",
@@ -403,6 +403,6 @@
       "sha256": "f65880e0456f529facadd027020190cac4f4bd2bb56cddd650f80a9341249681"
     }
   },
-  "completed_at_utc": "2026-10-02T04:40:29.639201+00:00",
-  "elapsed_seconds": 16.739
+  "completed_at_utc": "2026-10-04T10:05:00.799719+00:00",
+  "elapsed_seconds": 33.077
 }

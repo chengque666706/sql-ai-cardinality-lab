@@ -1,365 +1,365 @@
 ﻿phase,query_id,repeat,is_warmup,node_path,parent_path,node_type,relation,alias,plan_rows_per_loop,actual_rows_per_loop,actual_loops,actual_rows_total_approx,q_error,q_error_safe,executed,zero_actual,total_cost,actual_total_time_ms_per_loop,filter,join_filter,hash_cond,index_cond,plan_file
-baseline,T04,0,True,0,,Seq Scan,part,part,1552,1620,1,1620,1.0438144329896908,1.0438144329896908,True,False,7364.0,8.616,((part.p_size >= 1) AND (part.p_size <= 10) AND ((part.p_brand)::text = 'Brand#23'::text)),,,,plans/baseline/T04_r0.json
-baseline,S16,0,True,0,,Seq Scan,corr_dependent,corr_dependent,30,3000,1,3000,100.0,100.0,True,False,6122.0,9.356,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/baseline/S16_r0.json
-baseline,T01,0,True,0,,Seq Scan,orders,orders,731600,729413,1,729413,1.0029983013738444,1.0029983013738444,True,False,45462.0,82.851,((orders.o_orderstatus)::text = 'F'::text),,,,plans/baseline/T01_r0.json
-baseline,T03,0,True,0,,Seq Scan,lineitem,lineitem,907803,909455,1,909455,1.0018197780796054,1.0018197780796054,True,False,200634.11,337.617,((lineitem.l_shipdate >= '1994-01-01'::date) AND (lineitem.l_shipdate < '1995-01-01'::date)),,,,plans/baseline/T03_r0.json
-baseline,T07,0,True,0,,Hash Join,,,64271,61850,1,61850,1.0391430881164108,1.0391430881164108,True,False,254903.53,690.838,,,(l.l_orderkey = o.o_orderkey),,plans/baseline/T07_r0.json
-baseline,T07,0,True,0.0,0,Seq Scan,lineitem,l,1648078,1637557,1,1637557,1.0064248145255401,1.0064248145255401,True,False,200634.11,495.268,((l.l_discount >= 0.05) AND (l.l_discount <= 0.07)),,,,plans/baseline/T07_r0.json
-baseline,T07,0,True,0.1,0,Hash,,,58496,56506,1,56506,1.035217499026652,1.035217499026652,True,False,49212.0,78.359,,,,,plans/baseline/T07_r0.json
-baseline,T07,0,True,0.1.0,0.1,Seq Scan,orders,o,58496,56506,1,56506,1.035217499026652,1.035217499026652,True,False,49212.0,72.591,((o.o_orderdate >= '1995-01-01'::date) AND (o.o_orderdate < '1995-04-01'::date)),,,,plans/baseline/T07_r0.json
-baseline,T10,0,True,0,,Hash Join,,,105,118,1,118,1.1238095238095238,1.1238095238095238,True,False,9984.28,17.954,,,(ps.ps_suppkey = s.s_suppkey),,plans/baseline/T10_r0.json
-baseline,T10,0,True,0.0,0,Nested Loop,,,2636,2988,1,2988,1.1335356600910471,1.1335356600910471,True,False,9617.32,16.88,,,,,plans/baseline/T10_r0.json
-baseline,T10,0,True,0.0.0,0.0,Seq Scan,part,p,659,747,1,747,1.1335356600910471,1.1335356600910471,True,False,6864.0,14.987,(((p.p_type)::text ~~ '%BRASS'::text) AND (p.p_size = 15)),,,,plans/baseline/T10_r0.json
-baseline,T10,0,True,0.0.1,0.0,Index Only Scan,partsupp,ps,4,4,747,2988,1.0,1.0,True,False,4.14,0.002,,,,(ps.ps_partkey = p.p_partkey),plans/baseline/T10_r0.json
-baseline,T10,0,True,0.1,0,Hash,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,0.889,,,,,plans/baseline/T10_r0.json
-baseline,T10,0,True,0.1.0,0.1,Hash Join,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,0.861,,,(s.s_nationkey = n.n_nationkey),,plans/baseline/T10_r0.json
-baseline,T10,0,True,0.1.0.0,0.1.0,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,0.365,,,,,plans/baseline/T10_r0.json
-baseline,T10,0,True,0.1.0.1,0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.31,0.007,,,,,plans/baseline/T10_r0.json
-baseline,T10,0,True,0.1.0.1.0,0.1.0.1,Seq Scan,nation,n,1,1,1,1,1.0,1.0,True,False,1.31,0.003,((n.n_name)::text = 'GERMANY'::text),,,,plans/baseline/T10_r0.json
-baseline,T09,0,True,0,,Hash Join,,,316503,30519,1,30519,10.370687112946033,10.370687112946033,True,False,256097.78,663.73,,,(l.l_orderkey = o.o_orderkey),,plans/baseline/T09_r0.json
-baseline,T09,0,True,0.0,0,Seq Scan,lineitem,l,3247322,3241776,1,3241776,1.001710790628347,1.001710790628347,True,False,185629.76,356.708,(l.l_shipdate > '1995-03-15'::date),,,,plans/baseline/T09_r0.json
-baseline,T09,0,True,0.1,0,Hash,,,146199,147126,1,147126,1.0063406726448196,1.0063406726448196,True,False,53298.04,150.15,,,,,plans/baseline/T09_r0.json
-baseline,T09,0,True,0.1.0,0.1,Hash Join,,,146199,147126,1,147126,1.0063406726448196,1.0063406726448196,True,False,53298.04,135.02,,,(o.o_custkey = c.c_custkey),,plans/baseline/T09_r0.json
-baseline,T09,0,True,0.1.0.0,0.1.0,Seq Scan,orders,o,728685,727305,1,727305,1.0018974158021738,1.0018974158021738,True,False,45462.0,76.528,(o.o_orderdate < '1995-03-15'::date),,,,plans/baseline/T09_r0.json
-baseline,T09,0,True,0.1.0.1,0.1.0,Hash,,,30095,30142,1,30142,1.001561721216149,1.001561721216149,True,False,5547.0,10.064,,,,,plans/baseline/T09_r0.json
-baseline,T09,0,True,0.1.0.1.0,0.1.0.1,Seq Scan,customer,c,30095,30142,1,30142,1.001561721216149,1.001561721216149,True,False,5547.0,8.114,((c.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T09_r0.json
-baseline,S15,0,True,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,9.279,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/baseline/S15_r0.json
-baseline,S19,0,True,0,,Seq Scan,corr_skewed,corr_skewed,8,1515,1,1515,189.375,189.375,True,False,6122.0,9.134,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/baseline/S19_r0.json
-baseline,S14,0,True,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,8.287,(corr_dependent.city = 'C00'::text),,,,plans/baseline/S14_r0.json
-baseline,T08,0,True,0,,Hash Join,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,0.802,,,(s.s_nationkey = n.n_nationkey),,plans/baseline/T08_r0.json
-baseline,T08,0,True,0.0,0,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,0.34,,,,,plans/baseline/T08_r0.json
-baseline,T08,0,True,0.1,0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.31,0.009,,,,,plans/baseline/T08_r0.json
-baseline,T08,0,True,0.1.0,0.1,Seq Scan,nation,n,1,1,1,1,1.0,1.0,True,False,1.31,0.005,((n.n_name)::text = 'GERMANY'::text),,,,plans/baseline/T08_r0.json
-baseline,T11,0,True,0,,Nested Loop,,,182589,184082,1,184082,1.0081768343109387,1.0081768343109387,True,False,110921.9,479.512,,,,,plans/baseline/T11_r0.json
-baseline,T11,0,True,0.0,0,Nested Loop,,,45634,46008,1,46008,1.0081956435990709,1.0081956435990709,True,False,53840.21,321.269,,,,,plans/baseline/T11_r0.json
-baseline,T11,0,True,0.0.0,0.0,Hash Join,,,30000,30183,1,30183,1.0061,1.0061,True,False,6037.01,26.511,,,(c.c_nationkey = n.n_nationkey),,plans/baseline/T11_r0.json
-baseline,T11,0,True,0.0.0.0,0.0.0,Seq Scan,customer,c,150000,150000,1,150000,1.0,1.0,True,False,5172.0,12.172,,,,,plans/baseline/T11_r0.json
-baseline,T11,0,True,0.0.0.1,0.0.0,Hash,,,5,5,1,5,1.0,1.0,True,False,2.45,0.021,,,,,plans/baseline/T11_r0.json
-baseline,T11,0,True,0.0.0.1.0,0.0.0.1,Hash Join,,,5,5,1,5,1.0,1.0,True,False,2.45,0.02,,,(n.n_regionkey = r.r_regionkey),,plans/baseline/T11_r0.json
-baseline,T11,0,True,0.0.0.1.0.0,0.0.0.1.0,Seq Scan,nation,n,25,25,1,25,1.0,1.0,True,False,1.25,0.002,,,,,plans/baseline/T11_r0.json
-baseline,T11,0,True,0.0.0.1.0.1,0.0.0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.06,0.009,,,,,plans/baseline/T11_r0.json
-baseline,T11,0,True,0.0.0.1.0.1.0,0.0.0.1.0.1,Seq Scan,region,r,1,1,1,1,1.0,1.0,True,False,1.06,0.004,((r.r_name)::text = 'ASIA'::text),,,,plans/baseline/T11_r0.json
-baseline,T11,0,True,0.0.1,0.0,Index Scan,orders,o,3,2,30183,60366,1.5,1.5,True,False,1.56,0.01,((o.o_orderdate >= '1994-01-01'::date) AND (o.o_orderdate < '1995-01-01'::date)),,,(o.o_custkey = c.c_custkey),plans/baseline/T11_r0.json
-baseline,T11,0,True,0.1,0,Index Only Scan,lineitem,l,15,4,46008,184032,3.75,3.75,True,False,1.1,0.003,,,,(l.l_orderkey = o.o_orderkey),plans/baseline/T11_r0.json
-baseline,T02,0,True,0,,Seq Scan,orders,orders,20654,19472,1,19472,1.0607025472473295,1.0607025472473295,True,False,49212.0,68.304,((orders.o_orderdate >= '1995-01-01'::date) AND (orders.o_orderdate < '1995-02-01'::date)),,,,plans/baseline/T02_r0.json
-baseline,S20,0,True,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,13.001,,,(o.customer_id = c.id),,plans/baseline/S20_r0.json
-baseline,S20,0,True,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,12.344,(o.zipcode = 'Z00'::text),,,,plans/baseline/S20_r0.json
-baseline,S20,0,True,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,0.421,,,,,plans/baseline/S20_r0.json
-baseline,S20,0,True,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,0.411,(c.city = 'C00'::text),,,,plans/baseline/S20_r0.json
-baseline,S17,0,True,0,,Seq Scan,corr_dependent,corr_dependent,30,0,1,0,,30.0,True,True,6122.0,12.644,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/baseline/S17_r0.json
-baseline,S13,0,True,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,11.854,(corr_independent.city = 'C00'::text),,,,plans/baseline/S13_r0.json
-baseline,T12,0,True,0,,Hash Join,,,7304,7243,1,7243,1.0084219246168715,1.0084219246168715,True,False,200797.48,569.704,,,((c.c_nationkey = s.s_nationkey) AND (l.l_suppkey = s.s_suppkey)),,plans/baseline/T12_r0.json
-baseline,T12,0,True,0.0,0,Nested Loop,,,182589,184082,1,184082,1.0081768343109387,1.0081768343109387,True,False,199369.88,546.973,,,,,plans/baseline/T12_r0.json
-baseline,T12,0,True,0.0.0,0.0,Nested Loop,,,45634,46008,1,46008,1.0081956435990709,1.0081956435990709,True,False,53840.21,302.329,,,,,plans/baseline/T12_r0.json
-baseline,T12,0,True,0.0.0.0,0.0.0,Hash Join,,,30000,30183,1,30183,1.0061,1.0061,True,False,6037.01,26.27,,,(c.c_nationkey = n.n_nationkey),,plans/baseline/T12_r0.json
-baseline,T12,0,True,0.0.0.0.0,0.0.0.0,Seq Scan,customer,c,150000,150000,1,150000,1.0,1.0,True,False,5172.0,11.519,,,,,plans/baseline/T12_r0.json
-baseline,T12,0,True,0.0.0.0.1,0.0.0.0,Hash,,,5,5,1,5,1.0,1.0,True,False,2.45,0.028,,,,,plans/baseline/T12_r0.json
-baseline,T12,0,True,0.0.0.0.1.0,0.0.0.0.1,Hash Join,,,5,5,1,5,1.0,1.0,True,False,2.45,0.026,,,(n.n_regionkey = r.r_regionkey),,plans/baseline/T12_r0.json
-baseline,T12,0,True,0.0.0.0.1.0.0,0.0.0.0.1.0,Seq Scan,nation,n,25,25,1,25,1.0,1.0,True,False,1.25,0.006,,,,,plans/baseline/T12_r0.json
-baseline,T12,0,True,0.0.0.0.1.0.1,0.0.0.0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.06,0.012,,,,,plans/baseline/T12_r0.json
-baseline,T12,0,True,0.0.0.0.1.0.1.0,0.0.0.0.1.0.1,Seq Scan,region,r,1,1,1,1,1.0,1.0,True,False,1.06,0.007,((r.r_name)::text = 'ASIA'::text),,,,plans/baseline/T12_r0.json
-baseline,T12,0,True,0.0.0.1,0.0.0,Index Scan,orders,o,3,2,30183,60366,1.5,1.5,True,False,1.56,0.009,((o.o_orderdate >= '1994-01-01'::date) AND (o.o_orderdate < '1995-01-01'::date)),,,(o.o_custkey = c.c_custkey),plans/baseline/T12_r0.json
-baseline,T12,0,True,0.0.1,0.0,Index Scan,lineitem,l,15,4,46008,184032,3.75,3.75,True,False,3.04,0.005,,,,(l.l_orderkey = o.o_orderkey),plans/baseline/T12_r0.json
-baseline,T12,0,True,0.1,0,Hash,,,10000,10000,1,10000,1.0,1.0,True,False,319.0,1.629,,,,,plans/baseline/T12_r0.json
-baseline,T12,0,True,0.1.0,0.1,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,0.974,,,,,plans/baseline/T12_r0.json
-baseline,S18,0,True,0,,Seq Scan,corr_skewed,corr_skewed,75000,150000,1,150000,2.0,2.0,True,False,6122.0,16.569,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/baseline/S18_r0.json
-baseline,T05,0,True,0,,Seq Scan,customer,customer,30095,30142,1,30142,1.001561721216149,1.001561721216149,True,False,5547.0,13.694,((customer.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T05_r0.json
-baseline,T06,0,True,0,,Hash Join,,,300950,303959,1,303959,1.0099983385944509,1.0099983385944509,True,False,51572.8,177.633,,,(o.o_custkey = c.c_custkey),,plans/baseline/T06_r0.json
-baseline,T06,0,True,0.0,0,Seq Scan,orders,o,1500000,1500000,1,1500000,1.0,1.0,True,False,41712.0,63.318,,,,,plans/baseline/T06_r0.json
-baseline,T06,0,True,0.1,0,Hash,,,30095,30142,1,30142,1.001561721216149,1.001561721216149,True,False,5547.0,12.059,,,,,plans/baseline/T06_r0.json
-baseline,T06,0,True,0.1.0,0.1,Seq Scan,customer,c,30095,30142,1,30142,1.001561721216149,1.001561721216149,True,False,5547.0,9.942,((c.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T06_r0.json
-baseline,S13,1,False,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,12.598,(corr_independent.city = 'C00'::text),,,,plans/baseline/S13_r1.json
-baseline,T03,1,False,0,,Seq Scan,lineitem,lineitem,907803,909455,1,909455,1.0018197780796054,1.0018197780796054,True,False,200634.11,336.943,((lineitem.l_shipdate >= '1994-01-01'::date) AND (lineitem.l_shipdate < '1995-01-01'::date)),,,,plans/baseline/T03_r1.json
-baseline,S18,1,False,0,,Seq Scan,corr_skewed,corr_skewed,75000,150000,1,150000,2.0,2.0,True,False,6122.0,15.222,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/baseline/S18_r1.json
-baseline,T12,1,False,0,,Hash Join,,,7304,7243,1,7243,1.0084219246168715,1.0084219246168715,True,False,200797.48,610.821,,,((c.c_nationkey = s.s_nationkey) AND (l.l_suppkey = s.s_suppkey)),,plans/baseline/T12_r1.json
-baseline,T12,1,False,0.0,0,Nested Loop,,,182589,184082,1,184082,1.0081768343109387,1.0081768343109387,True,False,199369.88,581.928,,,,,plans/baseline/T12_r1.json
-baseline,T12,1,False,0.0.0,0.0,Nested Loop,,,45634,46008,1,46008,1.0081956435990709,1.0081956435990709,True,False,53840.21,339.078,,,,,plans/baseline/T12_r1.json
-baseline,T12,1,False,0.0.0.0,0.0.0,Hash Join,,,30000,30183,1,30183,1.0061,1.0061,True,False,6037.01,24.054,,,(c.c_nationkey = n.n_nationkey),,plans/baseline/T12_r1.json
-baseline,T12,1,False,0.0.0.0.0,0.0.0.0,Seq Scan,customer,c,150000,150000,1,150000,1.0,1.0,True,False,5172.0,10.031,,,,,plans/baseline/T12_r1.json
-baseline,T12,1,False,0.0.0.0.1,0.0.0.0,Hash,,,5,5,1,5,1.0,1.0,True,False,2.45,0.033,,,,,plans/baseline/T12_r1.json
-baseline,T12,1,False,0.0.0.0.1.0,0.0.0.0.1,Hash Join,,,5,5,1,5,1.0,1.0,True,False,2.45,0.031,,,(n.n_regionkey = r.r_regionkey),,plans/baseline/T12_r1.json
-baseline,T12,1,False,0.0.0.0.1.0.0,0.0.0.0.1.0,Seq Scan,nation,n,25,25,1,25,1.0,1.0,True,False,1.25,0.007,,,,,plans/baseline/T12_r1.json
-baseline,T12,1,False,0.0.0.0.1.0.1,0.0.0.0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.06,0.015,,,,,plans/baseline/T12_r1.json
-baseline,T12,1,False,0.0.0.0.1.0.1.0,0.0.0.0.1.0.1,Seq Scan,region,r,1,1,1,1,1.0,1.0,True,False,1.06,0.01,((r.r_name)::text = 'ASIA'::text),,,,plans/baseline/T12_r1.json
-baseline,T12,1,False,0.0.0.1,0.0.0,Index Scan,orders,o,3,2,30183,60366,1.5,1.5,True,False,1.56,0.01,((o.o_orderdate >= '1994-01-01'::date) AND (o.o_orderdate < '1995-01-01'::date)),,,(o.o_custkey = c.c_custkey),plans/baseline/T12_r1.json
-baseline,T12,1,False,0.0.1,0.0,Index Scan,lineitem,l,15,4,46008,184032,3.75,3.75,True,False,3.04,0.005,,,,(l.l_orderkey = o.o_orderkey),plans/baseline/T12_r1.json
-baseline,T12,1,False,0.1,0,Hash,,,10000,10000,1,10000,1.0,1.0,True,False,319.0,1.816,,,,,plans/baseline/T12_r1.json
-baseline,T12,1,False,0.1.0,0.1,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,1.12,,,,,plans/baseline/T12_r1.json
-baseline,T04,1,False,0,,Seq Scan,part,part,1552,1620,1,1620,1.0438144329896908,1.0438144329896908,True,False,7364.0,17.591,((part.p_size >= 1) AND (part.p_size <= 10) AND ((part.p_brand)::text = 'Brand#23'::text)),,,,plans/baseline/T04_r1.json
-baseline,T06,1,False,0,,Hash Join,,,300950,303959,1,303959,1.0099983385944509,1.0099983385944509,True,False,51572.8,196.128,,,(o.o_custkey = c.c_custkey),,plans/baseline/T06_r1.json
-baseline,T06,1,False,0.0,0,Seq Scan,orders,o,1500000,1500000,1,1500000,1.0,1.0,True,False,41712.0,70.328,,,,,plans/baseline/T06_r1.json
-baseline,T06,1,False,0.1,0,Hash,,,30095,30142,1,30142,1.001561721216149,1.001561721216149,True,False,5547.0,17.442,,,,,plans/baseline/T06_r1.json
-baseline,T06,1,False,0.1.0,0.1,Seq Scan,customer,c,30095,30142,1,30142,1.001561721216149,1.001561721216149,True,False,5547.0,14.998,((c.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T06_r1.json
-baseline,T08,1,False,0,,Hash Join,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,1.365,,,(s.s_nationkey = n.n_nationkey),,plans/baseline/T08_r1.json
-baseline,T08,1,False,0.0,0,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,0.906,,,,,plans/baseline/T08_r1.json
-baseline,T08,1,False,0.1,0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.31,0.013,,,,,plans/baseline/T08_r1.json
-baseline,T08,1,False,0.1.0,0.1,Seq Scan,nation,n,1,1,1,1,1.0,1.0,True,False,1.31,0.008,((n.n_name)::text = 'GERMANY'::text),,,,plans/baseline/T08_r1.json
-baseline,S19,1,False,0,,Seq Scan,corr_skewed,corr_skewed,8,1515,1,1515,189.375,189.375,True,False,6122.0,12.961,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/baseline/S19_r1.json
-baseline,S15,1,False,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,14.811,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/baseline/S15_r1.json
-baseline,S14,1,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,12.442,(corr_dependent.city = 'C00'::text),,,,plans/baseline/S14_r1.json
-baseline,T07,1,False,0,,Hash Join,,,64271,61850,1,61850,1.0391430881164108,1.0391430881164108,True,False,254903.53,689.086,,,(l.l_orderkey = o.o_orderkey),,plans/baseline/T07_r1.json
-baseline,T07,1,False,0.0,0,Seq Scan,lineitem,l,1648078,1637557,1,1637557,1.0064248145255401,1.0064248145255401,True,False,200634.11,497.912,((l.l_discount >= 0.05) AND (l.l_discount <= 0.07)),,,,plans/baseline/T07_r1.json
-baseline,T07,1,False,0.1,0,Hash,,,58496,56506,1,56506,1.035217499026652,1.035217499026652,True,False,49212.0,85.28,,,,,plans/baseline/T07_r1.json
-baseline,T07,1,False,0.1.0,0.1,Seq Scan,orders,o,58496,56506,1,56506,1.035217499026652,1.035217499026652,True,False,49212.0,78.982,((o.o_orderdate >= '1995-01-01'::date) AND (o.o_orderdate < '1995-04-01'::date)),,,,plans/baseline/T07_r1.json
-baseline,T10,1,False,0,,Hash Join,,,105,118,1,118,1.1238095238095238,1.1238095238095238,True,False,9984.28,20.375,,,(ps.ps_suppkey = s.s_suppkey),,plans/baseline/T10_r1.json
-baseline,T10,1,False,0.0,0,Nested Loop,,,2636,2988,1,2988,1.1335356600910471,1.1335356600910471,True,False,9617.32,19.1,,,,,plans/baseline/T10_r1.json
-baseline,T10,1,False,0.0.0,0.0,Seq Scan,part,p,659,747,1,747,1.1335356600910471,1.1335356600910471,True,False,6864.0,15.935,(((p.p_type)::text ~~ '%BRASS'::text) AND (p.p_size = 15)),,,,plans/baseline/T10_r1.json
-baseline,T10,1,False,0.0.1,0.0,Index Only Scan,partsupp,ps,4,4,747,2988,1.0,1.0,True,False,4.14,0.004,,,,(ps.ps_partkey = p.p_partkey),plans/baseline/T10_r1.json
-baseline,T10,1,False,0.1,0,Hash,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,1.089,,,,,plans/baseline/T10_r1.json
-baseline,T10,1,False,0.1.0,0.1,Hash Join,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,1.058,,,(s.s_nationkey = n.n_nationkey),,plans/baseline/T10_r1.json
-baseline,T10,1,False,0.1.0.0,0.1.0,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,0.561,,,,,plans/baseline/T10_r1.json
-baseline,T10,1,False,0.1.0.1,0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.31,0.009,,,,,plans/baseline/T10_r1.json
-baseline,T10,1,False,0.1.0.1.0,0.1.0.1,Seq Scan,nation,n,1,1,1,1,1.0,1.0,True,False,1.31,0.005,((n.n_name)::text = 'GERMANY'::text),,,,plans/baseline/T10_r1.json
-baseline,T02,1,False,0,,Seq Scan,orders,orders,20654,19472,1,19472,1.0607025472473295,1.0607025472473295,True,False,49212.0,70.901,((orders.o_orderdate >= '1995-01-01'::date) AND (orders.o_orderdate < '1995-02-01'::date)),,,,plans/baseline/T02_r1.json
-baseline,T09,1,False,0,,Hash Join,,,316503,30519,1,30519,10.370687112946033,10.370687112946033,True,False,256097.78,698.419,,,(l.l_orderkey = o.o_orderkey),,plans/baseline/T09_r1.json
-baseline,T09,1,False,0.0,0,Seq Scan,lineitem,l,3247322,3241776,1,3241776,1.001710790628347,1.001710790628347,True,False,185629.76,370.965,(l.l_shipdate > '1995-03-15'::date),,,,plans/baseline/T09_r1.json
-baseline,T09,1,False,0.1,0,Hash,,,146199,147126,1,147126,1.0063406726448196,1.0063406726448196,True,False,53298.04,158.451,,,,,plans/baseline/T09_r1.json
-baseline,T09,1,False,0.1.0,0.1,Hash Join,,,146199,147126,1,147126,1.0063406726448196,1.0063406726448196,True,False,53298.04,142.626,,,(o.o_custkey = c.c_custkey),,plans/baseline/T09_r1.json
-baseline,T09,1,False,0.1.0.0,0.1.0,Seq Scan,orders,o,728685,727305,1,727305,1.0018974158021738,1.0018974158021738,True,False,45462.0,82.979,(o.o_orderdate < '1995-03-15'::date),,,,plans/baseline/T09_r1.json
-baseline,T09,1,False,0.1.0.1,0.1.0,Hash,,,30095,30142,1,30142,1.001561721216149,1.001561721216149,True,False,5547.0,11.94,,,,,plans/baseline/T09_r1.json
-baseline,T09,1,False,0.1.0.1.0,0.1.0.1,Seq Scan,customer,c,30095,30142,1,30142,1.001561721216149,1.001561721216149,True,False,5547.0,9.854,((c.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T09_r1.json
-baseline,S17,1,False,0,,Seq Scan,corr_dependent,corr_dependent,30,0,1,0,,30.0,True,True,6122.0,10.173,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/baseline/S17_r1.json
-baseline,S16,1,False,0,,Seq Scan,corr_dependent,corr_dependent,30,3000,1,3000,100.0,100.0,True,False,6122.0,10.489,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/baseline/S16_r1.json
-baseline,T05,1,False,0,,Seq Scan,customer,customer,30095,30142,1,30142,1.001561721216149,1.001561721216149,True,False,5547.0,9.688,((customer.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T05_r1.json
-baseline,T11,1,False,0,,Nested Loop,,,182589,184082,1,184082,1.0081768343109387,1.0081768343109387,True,False,110921.9,359.257,,,,,plans/baseline/T11_r1.json
-baseline,T11,1,False,0.0,0,Nested Loop,,,45634,46008,1,46008,1.0081956435990709,1.0081956435990709,True,False,53840.21,233.744,,,,,plans/baseline/T11_r1.json
-baseline,T11,1,False,0.0.0,0.0,Hash Join,,,30000,30183,1,30183,1.0061,1.0061,True,False,6037.01,20.396,,,(c.c_nationkey = n.n_nationkey),,plans/baseline/T11_r1.json
-baseline,T11,1,False,0.0.0.0,0.0.0,Seq Scan,customer,c,150000,150000,1,150000,1.0,1.0,True,False,5172.0,9.052,,,,,plans/baseline/T11_r1.json
-baseline,T11,1,False,0.0.0.1,0.0.0,Hash,,,5,5,1,5,1.0,1.0,True,False,2.45,0.031,,,,,plans/baseline/T11_r1.json
-baseline,T11,1,False,0.0.0.1.0,0.0.0.1,Hash Join,,,5,5,1,5,1.0,1.0,True,False,2.45,0.029,,,(n.n_regionkey = r.r_regionkey),,plans/baseline/T11_r1.json
-baseline,T11,1,False,0.0.0.1.0.0,0.0.0.1.0,Seq Scan,nation,n,25,25,1,25,1.0,1.0,True,False,1.25,0.005,,,,,plans/baseline/T11_r1.json
-baseline,T11,1,False,0.0.0.1.0.1,0.0.0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.06,0.015,,,,,plans/baseline/T11_r1.json
-baseline,T11,1,False,0.0.0.1.0.1.0,0.0.0.1.0.1,Seq Scan,region,r,1,1,1,1,1.0,1.0,True,False,1.06,0.011,((r.r_name)::text = 'ASIA'::text),,,,plans/baseline/T11_r1.json
-baseline,T11,1,False,0.0.1,0.0,Index Scan,orders,o,3,2,30183,60366,1.5,1.5,True,False,1.56,0.007,((o.o_orderdate >= '1994-01-01'::date) AND (o.o_orderdate < '1995-01-01'::date)),,,(o.o_custkey = c.c_custkey),plans/baseline/T11_r1.json
-baseline,T11,1,False,0.1,0,Index Only Scan,lineitem,l,15,4,46008,184032,3.75,3.75,True,False,1.1,0.002,,,,(l.l_orderkey = o.o_orderkey),plans/baseline/T11_r1.json
-baseline,S20,1,False,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,16.521,,,(o.customer_id = c.id),,plans/baseline/S20_r1.json
-baseline,S20,1,False,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,15.758,(o.zipcode = 'Z00'::text),,,,plans/baseline/S20_r1.json
-baseline,S20,1,False,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,0.443,,,,,plans/baseline/S20_r1.json
-baseline,S20,1,False,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,0.431,(c.city = 'C00'::text),,,,plans/baseline/S20_r1.json
-baseline,T01,1,False,0,,Seq Scan,orders,orders,731600,729413,1,729413,1.0029983013738444,1.0029983013738444,True,False,45462.0,89.872,((orders.o_orderstatus)::text = 'F'::text),,,,plans/baseline/T01_r1.json
-baseline,T07,2,False,0,,Hash Join,,,64271,61850,1,61850,1.0391430881164108,1.0391430881164108,True,False,254903.53,700.663,,,(l.l_orderkey = o.o_orderkey),,plans/baseline/T07_r2.json
-baseline,T07,2,False,0.0,0,Seq Scan,lineitem,l,1648078,1637557,1,1637557,1.0064248145255401,1.0064248145255401,True,False,200634.11,490.365,((l.l_discount >= 0.05) AND (l.l_discount <= 0.07)),,,,plans/baseline/T07_r2.json
-baseline,T07,2,False,0.1,0,Hash,,,58496,56506,1,56506,1.035217499026652,1.035217499026652,True,False,49212.0,76.915,,,,,plans/baseline/T07_r2.json
-baseline,T07,2,False,0.1.0,0.1,Seq Scan,orders,o,58496,56506,1,56506,1.035217499026652,1.035217499026652,True,False,49212.0,71.551,((o.o_orderdate >= '1995-01-01'::date) AND (o.o_orderdate < '1995-04-01'::date)),,,,plans/baseline/T07_r2.json
-baseline,S20,2,False,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,10.756,,,(o.customer_id = c.id),,plans/baseline/S20_r2.json
-baseline,S20,2,False,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,10.136,(o.zipcode = 'Z00'::text),,,,plans/baseline/S20_r2.json
-baseline,S20,2,False,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,0.337,,,,,plans/baseline/S20_r2.json
-baseline,S20,2,False,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,0.325,(c.city = 'C00'::text),,,,plans/baseline/S20_r2.json
-baseline,T01,2,False,0,,Seq Scan,orders,orders,731600,729413,1,729413,1.0029983013738444,1.0029983013738444,True,False,45462.0,87.885,((orders.o_orderstatus)::text = 'F'::text),,,,plans/baseline/T01_r2.json
-baseline,S19,2,False,0,,Seq Scan,corr_skewed,corr_skewed,8,1515,1,1515,189.375,189.375,True,False,6122.0,13.099,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/baseline/S19_r2.json
-baseline,S15,2,False,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,14.572,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/baseline/S15_r2.json
-baseline,T05,2,False,0,,Seq Scan,customer,customer,30095,30142,1,30142,1.001561721216149,1.001561721216149,True,False,5547.0,14.782,((customer.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T05_r2.json
-baseline,S14,2,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,14.117,(corr_dependent.city = 'C00'::text),,,,plans/baseline/S14_r2.json
-baseline,S18,2,False,0,,Seq Scan,corr_skewed,corr_skewed,75000,150000,1,150000,2.0,2.0,True,False,6122.0,18.991,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/baseline/S18_r2.json
-baseline,T08,2,False,0,,Hash Join,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,1.475,,,(s.s_nationkey = n.n_nationkey),,plans/baseline/T08_r2.json
-baseline,T08,2,False,0.0,0,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,0.95,,,,,plans/baseline/T08_r2.json
-baseline,T08,2,False,0.1,0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.31,0.017,,,,,plans/baseline/T08_r2.json
-baseline,T08,2,False,0.1.0,0.1,Seq Scan,nation,n,1,1,1,1,1.0,1.0,True,False,1.31,0.012,((n.n_name)::text = 'GERMANY'::text),,,,plans/baseline/T08_r2.json
-baseline,T03,2,False,0,,Seq Scan,lineitem,lineitem,907803,909455,1,909455,1.0018197780796054,1.0018197780796054,True,False,200634.11,357.29,((lineitem.l_shipdate >= '1994-01-01'::date) AND (lineitem.l_shipdate < '1995-01-01'::date)),,,,plans/baseline/T03_r2.json
-baseline,T11,2,False,0,,Nested Loop,,,182589,184082,1,184082,1.0081768343109387,1.0081768343109387,True,False,110921.9,372.097,,,,,plans/baseline/T11_r2.json
-baseline,T11,2,False,0.0,0,Nested Loop,,,45634,46008,1,46008,1.0081956435990709,1.0081956435990709,True,False,53840.21,240.775,,,,,plans/baseline/T11_r2.json
-baseline,T11,2,False,0.0.0,0.0,Hash Join,,,30000,30183,1,30183,1.0061,1.0061,True,False,6037.01,21.186,,,(c.c_nationkey = n.n_nationkey),,plans/baseline/T11_r2.json
-baseline,T11,2,False,0.0.0.0,0.0.0,Seq Scan,customer,c,150000,150000,1,150000,1.0,1.0,True,False,5172.0,9.452,,,,,plans/baseline/T11_r2.json
-baseline,T11,2,False,0.0.0.1,0.0.0,Hash,,,5,5,1,5,1.0,1.0,True,False,2.45,0.032,,,,,plans/baseline/T11_r2.json
-baseline,T11,2,False,0.0.0.1.0,0.0.0.1,Hash Join,,,5,5,1,5,1.0,1.0,True,False,2.45,0.03,,,(n.n_regionkey = r.r_regionkey),,plans/baseline/T11_r2.json
-baseline,T11,2,False,0.0.0.1.0.0,0.0.0.1.0,Seq Scan,nation,n,25,25,1,25,1.0,1.0,True,False,1.25,0.004,,,,,plans/baseline/T11_r2.json
-baseline,T11,2,False,0.0.0.1.0.1,0.0.0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.06,0.016,,,,,plans/baseline/T11_r2.json
-baseline,T11,2,False,0.0.0.1.0.1.0,0.0.0.1.0.1,Seq Scan,region,r,1,1,1,1,1.0,1.0,True,False,1.06,0.01,((r.r_name)::text = 'ASIA'::text),,,,plans/baseline/T11_r2.json
-baseline,T11,2,False,0.0.1,0.0,Index Scan,orders,o,3,2,30183,60366,1.5,1.5,True,False,1.56,0.007,((o.o_orderdate >= '1994-01-01'::date) AND (o.o_orderdate < '1995-01-01'::date)),,,(o.o_custkey = c.c_custkey),plans/baseline/T11_r2.json
-baseline,T11,2,False,0.1,0,Index Only Scan,lineitem,l,15,4,46008,184032,3.75,3.75,True,False,1.1,0.003,,,,(l.l_orderkey = o.o_orderkey),plans/baseline/T11_r2.json
-baseline,S17,2,False,0,,Seq Scan,corr_dependent,corr_dependent,30,0,1,0,,30.0,True,True,6122.0,13.431,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/baseline/S17_r2.json
-baseline,T12,2,False,0,,Hash Join,,,7304,7243,1,7243,1.0084219246168715,1.0084219246168715,True,False,200797.48,541.925,,,((c.c_nationkey = s.s_nationkey) AND (l.l_suppkey = s.s_suppkey)),,plans/baseline/T12_r2.json
-baseline,T12,2,False,0.0,0,Nested Loop,,,182589,184082,1,184082,1.0081768343109387,1.0081768343109387,True,False,199369.88,518.106,,,,,plans/baseline/T12_r2.json
-baseline,T12,2,False,0.0.0,0.0,Nested Loop,,,45634,46008,1,46008,1.0081956435990709,1.0081956435990709,True,False,53840.21,288.971,,,,,plans/baseline/T12_r2.json
-baseline,T12,2,False,0.0.0.0,0.0.0,Hash Join,,,30000,30183,1,30183,1.0061,1.0061,True,False,6037.01,22.986,,,(c.c_nationkey = n.n_nationkey),,plans/baseline/T12_r2.json
-baseline,T12,2,False,0.0.0.0.0,0.0.0.0,Seq Scan,customer,c,150000,150000,1,150000,1.0,1.0,True,False,5172.0,10.107,,,,,plans/baseline/T12_r2.json
-baseline,T12,2,False,0.0.0.0.1,0.0.0.0,Hash,,,5,5,1,5,1.0,1.0,True,False,2.45,0.031,,,,,plans/baseline/T12_r2.json
-baseline,T12,2,False,0.0.0.0.1.0,0.0.0.0.1,Hash Join,,,5,5,1,5,1.0,1.0,True,False,2.45,0.029,,,(n.n_regionkey = r.r_regionkey),,plans/baseline/T12_r2.json
-baseline,T12,2,False,0.0.0.0.1.0.0,0.0.0.0.1.0,Seq Scan,nation,n,25,25,1,25,1.0,1.0,True,False,1.25,0.006,,,,,plans/baseline/T12_r2.json
-baseline,T12,2,False,0.0.0.0.1.0.1,0.0.0.0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.06,0.012,,,,,plans/baseline/T12_r2.json
-baseline,T12,2,False,0.0.0.0.1.0.1.0,0.0.0.0.1.0.1,Seq Scan,region,r,1,1,1,1,1.0,1.0,True,False,1.06,0.007,((r.r_name)::text = 'ASIA'::text),,,,plans/baseline/T12_r2.json
-baseline,T12,2,False,0.0.0.1,0.0.0,Index Scan,orders,o,3,2,30183,60366,1.5,1.5,True,False,1.56,0.009,((o.o_orderdate >= '1994-01-01'::date) AND (o.o_orderdate < '1995-01-01'::date)),,,(o.o_custkey = c.c_custkey),plans/baseline/T12_r2.json
-baseline,T12,2,False,0.0.1,0.0,Index Scan,lineitem,l,15,4,46008,184032,3.75,3.75,True,False,3.04,0.005,,,,(l.l_orderkey = o.o_orderkey),plans/baseline/T12_r2.json
-baseline,T12,2,False,0.1,0,Hash,,,10000,10000,1,10000,1.0,1.0,True,False,319.0,1.772,,,,,plans/baseline/T12_r2.json
-baseline,T12,2,False,0.1.0,0.1,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,1.049,,,,,plans/baseline/T12_r2.json
-baseline,T04,2,False,0,,Seq Scan,part,part,1552,1620,1,1620,1.0438144329896908,1.0438144329896908,True,False,7364.0,16.216,((part.p_size >= 1) AND (part.p_size <= 10) AND ((part.p_brand)::text = 'Brand#23'::text)),,,,plans/baseline/T04_r2.json
-baseline,S16,2,False,0,,Seq Scan,corr_dependent,corr_dependent,30,3000,1,3000,100.0,100.0,True,False,6122.0,12.077,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/baseline/S16_r2.json
-baseline,T09,2,False,0,,Hash Join,,,316503,30519,1,30519,10.370687112946033,10.370687112946033,True,False,256097.78,706.729,,,(l.l_orderkey = o.o_orderkey),,plans/baseline/T09_r2.json
-baseline,T09,2,False,0.0,0,Seq Scan,lineitem,l,3247322,3241776,1,3241776,1.001710790628347,1.001710790628347,True,False,185629.76,367.007,(l.l_shipdate > '1995-03-15'::date),,,,plans/baseline/T09_r2.json
-baseline,T09,2,False,0.1,0,Hash,,,146199,147126,1,147126,1.0063406726448196,1.0063406726448196,True,False,53298.04,170.299,,,,,plans/baseline/T09_r2.json
-baseline,T09,2,False,0.1.0,0.1,Hash Join,,,146199,147126,1,147126,1.0063406726448196,1.0063406726448196,True,False,53298.04,153.178,,,(o.o_custkey = c.c_custkey),,plans/baseline/T09_r2.json
-baseline,T09,2,False,0.1.0.0,0.1.0,Seq Scan,orders,o,728685,727305,1,727305,1.0018974158021738,1.0018974158021738,True,False,45462.0,87.481,(o.o_orderdate < '1995-03-15'::date),,,,plans/baseline/T09_r2.json
-baseline,T09,2,False,0.1.0.1,0.1.0,Hash,,,30095,30142,1,30142,1.001561721216149,1.001561721216149,True,False,5547.0,16.186,,,,,plans/baseline/T09_r2.json
-baseline,T09,2,False,0.1.0.1.0,0.1.0.1,Seq Scan,customer,c,30095,30142,1,30142,1.001561721216149,1.001561721216149,True,False,5547.0,13.952,((c.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T09_r2.json
-baseline,S13,2,False,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,12.129,(corr_independent.city = 'C00'::text),,,,plans/baseline/S13_r2.json
-baseline,T10,2,False,0,,Hash Join,,,105,118,1,118,1.1238095238095238,1.1238095238095238,True,False,9984.28,21.3,,,(ps.ps_suppkey = s.s_suppkey),,plans/baseline/T10_r2.json
-baseline,T10,2,False,0.0,0,Nested Loop,,,2636,2988,1,2988,1.1335356600910471,1.1335356600910471,True,False,9617.32,19.78,,,,,plans/baseline/T10_r2.json
-baseline,T10,2,False,0.0.0,0.0,Seq Scan,part,p,659,747,1,747,1.1335356600910471,1.1335356600910471,True,False,6864.0,16.803,(((p.p_type)::text ~~ '%BRASS'::text) AND (p.p_size = 15)),,,,plans/baseline/T10_r2.json
-baseline,T10,2,False,0.0.1,0.0,Index Only Scan,partsupp,ps,4,4,747,2988,1.0,1.0,True,False,4.14,0.004,,,,(ps.ps_partkey = p.p_partkey),plans/baseline/T10_r2.json
-baseline,T10,2,False,0.1,0,Hash,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,1.344,,,,,plans/baseline/T10_r2.json
-baseline,T10,2,False,0.1.0,0.1,Hash Join,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,1.315,,,(s.s_nationkey = n.n_nationkey),,plans/baseline/T10_r2.json
-baseline,T10,2,False,0.1.0.0,0.1.0,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,0.868,,,,,plans/baseline/T10_r2.json
-baseline,T10,2,False,0.1.0.1,0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.31,0.01,,,,,plans/baseline/T10_r2.json
-baseline,T10,2,False,0.1.0.1.0,0.1.0.1,Seq Scan,nation,n,1,1,1,1,1.0,1.0,True,False,1.31,0.006,((n.n_name)::text = 'GERMANY'::text),,,,plans/baseline/T10_r2.json
-baseline,T02,2,False,0,,Seq Scan,orders,orders,20654,19472,1,19472,1.0607025472473295,1.0607025472473295,True,False,49212.0,72.991,((orders.o_orderdate >= '1995-01-01'::date) AND (orders.o_orderdate < '1995-02-01'::date)),,,,plans/baseline/T02_r2.json
-baseline,T06,2,False,0,,Hash Join,,,300950,303959,1,303959,1.0099983385944509,1.0099983385944509,True,False,51572.8,181.164,,,(o.o_custkey = c.c_custkey),,plans/baseline/T06_r2.json
-baseline,T06,2,False,0.0,0,Seq Scan,orders,o,1500000,1500000,1,1500000,1.0,1.0,True,False,41712.0,65.743,,,,,plans/baseline/T06_r2.json
-baseline,T06,2,False,0.1,0,Hash,,,30095,30142,1,30142,1.001561721216149,1.001561721216149,True,False,5547.0,12.44,,,,,plans/baseline/T06_r2.json
-baseline,T06,2,False,0.1.0,0.1,Seq Scan,customer,c,30095,30142,1,30142,1.001561721216149,1.001561721216149,True,False,5547.0,10.311,((c.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T06_r2.json
-baseline,S19,3,False,0,,Seq Scan,corr_skewed,corr_skewed,8,1515,1,1515,189.375,189.375,True,False,6122.0,12.762,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/baseline/S19_r3.json
-baseline,T03,3,False,0,,Seq Scan,lineitem,lineitem,907803,909455,1,909455,1.0018197780796054,1.0018197780796054,True,False,200634.11,364.861,((lineitem.l_shipdate >= '1994-01-01'::date) AND (lineitem.l_shipdate < '1995-01-01'::date)),,,,plans/baseline/T03_r3.json
-baseline,T12,3,False,0,,Hash Join,,,7304,7243,1,7243,1.0084219246168715,1.0084219246168715,True,False,200797.48,573.182,,,((c.c_nationkey = s.s_nationkey) AND (l.l_suppkey = s.s_suppkey)),,plans/baseline/T12_r3.json
-baseline,T12,3,False,0.0,0,Nested Loop,,,182589,184082,1,184082,1.0081768343109387,1.0081768343109387,True,False,199369.88,548.489,,,,,plans/baseline/T12_r3.json
-baseline,T12,3,False,0.0.0,0.0,Nested Loop,,,45634,46008,1,46008,1.0081956435990709,1.0081956435990709,True,False,53840.21,317.751,,,,,plans/baseline/T12_r3.json
-baseline,T12,3,False,0.0.0.0,0.0.0,Hash Join,,,30000,30183,1,30183,1.0061,1.0061,True,False,6037.01,22.695,,,(c.c_nationkey = n.n_nationkey),,plans/baseline/T12_r3.json
-baseline,T12,3,False,0.0.0.0.0,0.0.0.0,Seq Scan,customer,c,150000,150000,1,150000,1.0,1.0,True,False,5172.0,9.596,,,,,plans/baseline/T12_r3.json
-baseline,T12,3,False,0.0.0.0.1,0.0.0.0,Hash,,,5,5,1,5,1.0,1.0,True,False,2.45,0.032,,,,,plans/baseline/T12_r3.json
-baseline,T12,3,False,0.0.0.0.1.0,0.0.0.0.1,Hash Join,,,5,5,1,5,1.0,1.0,True,False,2.45,0.031,,,(n.n_regionkey = r.r_regionkey),,plans/baseline/T12_r3.json
-baseline,T12,3,False,0.0.0.0.1.0.0,0.0.0.0.1.0,Seq Scan,nation,n,25,25,1,25,1.0,1.0,True,False,1.25,0.004,,,,,plans/baseline/T12_r3.json
-baseline,T12,3,False,0.0.0.0.1.0.1,0.0.0.0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.06,0.017,,,,,plans/baseline/T12_r3.json
-baseline,T12,3,False,0.0.0.0.1.0.1.0,0.0.0.0.1.0.1,Seq Scan,region,r,1,1,1,1,1.0,1.0,True,False,1.06,0.012,((r.r_name)::text = 'ASIA'::text),,,,plans/baseline/T12_r3.json
-baseline,T12,3,False,0.0.0.1,0.0.0,Index Scan,orders,o,3,2,30183,60366,1.5,1.5,True,False,1.56,0.01,((o.o_orderdate >= '1994-01-01'::date) AND (o.o_orderdate < '1995-01-01'::date)),,,(o.o_custkey = c.c_custkey),plans/baseline/T12_r3.json
-baseline,T12,3,False,0.0.1,0.0,Index Scan,lineitem,l,15,4,46008,184032,3.75,3.75,True,False,3.04,0.005,,,,(l.l_orderkey = o.o_orderkey),plans/baseline/T12_r3.json
-baseline,T12,3,False,0.1,0,Hash,,,10000,10000,1,10000,1.0,1.0,True,False,319.0,1.618,,,,,plans/baseline/T12_r3.json
-baseline,T12,3,False,0.1.0,0.1,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,0.917,,,,,plans/baseline/T12_r3.json
-baseline,T08,3,False,0,,Hash Join,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,1.254,,,(s.s_nationkey = n.n_nationkey),,plans/baseline/T08_r3.json
-baseline,T08,3,False,0.0,0,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,0.839,,,,,plans/baseline/T08_r3.json
-baseline,T08,3,False,0.1,0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.31,0.011,,,,,plans/baseline/T08_r3.json
-baseline,T08,3,False,0.1.0,0.1,Seq Scan,nation,n,1,1,1,1,1.0,1.0,True,False,1.31,0.007,((n.n_name)::text = 'GERMANY'::text),,,,plans/baseline/T08_r3.json
-baseline,T07,3,False,0,,Hash Join,,,64271,61850,1,61850,1.0391430881164108,1.0391430881164108,True,False,254903.53,730.12,,,(l.l_orderkey = o.o_orderkey),,plans/baseline/T07_r3.json
-baseline,T07,3,False,0.0,0,Seq Scan,lineitem,l,1648078,1637557,1,1637557,1.0064248145255401,1.0064248145255401,True,False,200634.11,517.707,((l.l_discount >= 0.05) AND (l.l_discount <= 0.07)),,,,plans/baseline/T07_r3.json
-baseline,T07,3,False,0.1,0,Hash,,,58496,56506,1,56506,1.035217499026652,1.035217499026652,True,False,49212.0,90.656,,,,,plans/baseline/T07_r3.json
-baseline,T07,3,False,0.1.0,0.1,Seq Scan,orders,o,58496,56506,1,56506,1.035217499026652,1.035217499026652,True,False,49212.0,83.674,((o.o_orderdate >= '1995-01-01'::date) AND (o.o_orderdate < '1995-04-01'::date)),,,,plans/baseline/T07_r3.json
-baseline,T04,3,False,0,,Seq Scan,part,part,1552,1620,1,1620,1.0438144329896908,1.0438144329896908,True,False,7364.0,16.518,((part.p_size >= 1) AND (part.p_size <= 10) AND ((part.p_brand)::text = 'Brand#23'::text)),,,,plans/baseline/T04_r3.json
-baseline,T06,3,False,0,,Hash Join,,,300950,303959,1,303959,1.0099983385944509,1.0099983385944509,True,False,51572.8,179.252,,,(o.o_custkey = c.c_custkey),,plans/baseline/T06_r3.json
-baseline,T06,3,False,0.0,0,Seq Scan,orders,o,1500000,1500000,1,1500000,1.0,1.0,True,False,41712.0,63.721,,,,,plans/baseline/T06_r3.json
-baseline,T06,3,False,0.1,0,Hash,,,30095,30142,1,30142,1.001561721216149,1.001561721216149,True,False,5547.0,15.943,,,,,plans/baseline/T06_r3.json
-baseline,T06,3,False,0.1.0,0.1,Seq Scan,customer,c,30095,30142,1,30142,1.001561721216149,1.001561721216149,True,False,5547.0,13.703,((c.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T06_r3.json
-baseline,S17,3,False,0,,Seq Scan,corr_dependent,corr_dependent,30,0,1,0,,30.0,True,True,6122.0,12.496,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/baseline/S17_r3.json
-baseline,S16,3,False,0,,Seq Scan,corr_dependent,corr_dependent,30,3000,1,3000,100.0,100.0,True,False,6122.0,10.323,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/baseline/S16_r3.json
-baseline,T11,3,False,0,,Nested Loop,,,182589,184082,1,184082,1.0081768343109387,1.0081768343109387,True,False,110921.9,393.023,,,,,plans/baseline/T11_r3.json
-baseline,T11,3,False,0.0,0,Nested Loop,,,45634,46008,1,46008,1.0081956435990709,1.0081956435990709,True,False,53840.21,256.932,,,,,plans/baseline/T11_r3.json
-baseline,T11,3,False,0.0.0,0.0,Hash Join,,,30000,30183,1,30183,1.0061,1.0061,True,False,6037.01,21.804,,,(c.c_nationkey = n.n_nationkey),,plans/baseline/T11_r3.json
-baseline,T11,3,False,0.0.0.0,0.0.0,Seq Scan,customer,c,150000,150000,1,150000,1.0,1.0,True,False,5172.0,9.616,,,,,plans/baseline/T11_r3.json
-baseline,T11,3,False,0.0.0.1,0.0.0,Hash,,,5,5,1,5,1.0,1.0,True,False,2.45,0.031,,,,,plans/baseline/T11_r3.json
-baseline,T11,3,False,0.0.0.1.0,0.0.0.1,Hash Join,,,5,5,1,5,1.0,1.0,True,False,2.45,0.029,,,(n.n_regionkey = r.r_regionkey),,plans/baseline/T11_r3.json
-baseline,T11,3,False,0.0.0.1.0.0,0.0.0.1.0,Seq Scan,nation,n,25,25,1,25,1.0,1.0,True,False,1.25,0.003,,,,,plans/baseline/T11_r3.json
-baseline,T11,3,False,0.0.0.1.0.1,0.0.0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.06,0.013,,,,,plans/baseline/T11_r3.json
-baseline,T11,3,False,0.0.0.1.0.1.0,0.0.0.1.0.1,Seq Scan,region,r,1,1,1,1,1.0,1.0,True,False,1.06,0.008,((r.r_name)::text = 'ASIA'::text),,,,plans/baseline/T11_r3.json
-baseline,T11,3,False,0.0.1,0.0,Index Scan,orders,o,3,2,30183,60366,1.5,1.5,True,False,1.56,0.008,((o.o_orderdate >= '1994-01-01'::date) AND (o.o_orderdate < '1995-01-01'::date)),,,(o.o_custkey = c.c_custkey),plans/baseline/T11_r3.json
-baseline,T11,3,False,0.1,0,Index Only Scan,lineitem,l,15,4,46008,184032,3.75,3.75,True,False,1.1,0.003,,,,(l.l_orderkey = o.o_orderkey),plans/baseline/T11_r3.json
-baseline,S15,3,False,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,12.886,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/baseline/S15_r3.json
-baseline,T01,3,False,0,,Seq Scan,orders,orders,731600,729413,1,729413,1.0029983013738444,1.0029983013738444,True,False,45462.0,87.489,((orders.o_orderstatus)::text = 'F'::text),,,,plans/baseline/T01_r3.json
-baseline,S14,3,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,11.555,(corr_dependent.city = 'C00'::text),,,,plans/baseline/S14_r3.json
-baseline,S20,3,False,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,13.136,,,(o.customer_id = c.id),,plans/baseline/S20_r3.json
-baseline,S20,3,False,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,12.432,(o.zipcode = 'Z00'::text),,,,plans/baseline/S20_r3.json
-baseline,S20,3,False,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,0.409,,,,,plans/baseline/S20_r3.json
-baseline,S20,3,False,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,0.397,(c.city = 'C00'::text),,,,plans/baseline/S20_r3.json
-baseline,T02,3,False,0,,Seq Scan,orders,orders,20654,19472,1,19472,1.0607025472473295,1.0607025472473295,True,False,49212.0,72.802,((orders.o_orderdate >= '1995-01-01'::date) AND (orders.o_orderdate < '1995-02-01'::date)),,,,plans/baseline/T02_r3.json
-baseline,T05,3,False,0,,Seq Scan,customer,customer,30095,30142,1,30142,1.001561721216149,1.001561721216149,True,False,5547.0,14.824,((customer.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T05_r3.json
-baseline,S13,3,False,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,11.582,(corr_independent.city = 'C00'::text),,,,plans/baseline/S13_r3.json
-baseline,T10,3,False,0,,Hash Join,,,105,118,1,118,1.1238095238095238,1.1238095238095238,True,False,9984.28,25.98,,,(ps.ps_suppkey = s.s_suppkey),,plans/baseline/T10_r3.json
-baseline,T10,3,False,0.0,0,Nested Loop,,,2636,2988,1,2988,1.1335356600910471,1.1335356600910471,True,False,9617.32,24.542,,,,,plans/baseline/T10_r3.json
-baseline,T10,3,False,0.0.0,0.0,Seq Scan,part,p,659,747,1,747,1.1335356600910471,1.1335356600910471,True,False,6864.0,21.482,(((p.p_type)::text ~~ '%BRASS'::text) AND (p.p_size = 15)),,,,plans/baseline/T10_r3.json
-baseline,T10,3,False,0.0.1,0.0,Index Only Scan,partsupp,ps,4,4,747,2988,1.0,1.0,True,False,4.14,0.004,,,,(ps.ps_partkey = p.p_partkey),plans/baseline/T10_r3.json
-baseline,T10,3,False,0.1,0,Hash,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,1.224,,,,,plans/baseline/T10_r3.json
-baseline,T10,3,False,0.1.0,0.1,Hash Join,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,1.195,,,(s.s_nationkey = n.n_nationkey),,plans/baseline/T10_r3.json
-baseline,T10,3,False,0.1.0.0,0.1.0,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,0.769,,,,,plans/baseline/T10_r3.json
-baseline,T10,3,False,0.1.0.1,0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.31,0.01,,,,,plans/baseline/T10_r3.json
-baseline,T10,3,False,0.1.0.1.0,0.1.0.1,Seq Scan,nation,n,1,1,1,1,1.0,1.0,True,False,1.31,0.006,((n.n_name)::text = 'GERMANY'::text),,,,plans/baseline/T10_r3.json
-baseline,S18,3,False,0,,Seq Scan,corr_skewed,corr_skewed,75000,150000,1,150000,2.0,2.0,True,False,6122.0,16.26,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/baseline/S18_r3.json
-baseline,T09,3,False,0,,Hash Join,,,316503,30519,1,30519,10.370687112946033,10.370687112946033,True,False,256097.78,696.12,,,(l.l_orderkey = o.o_orderkey),,plans/baseline/T09_r3.json
-baseline,T09,3,False,0.0,0,Seq Scan,lineitem,l,3247322,3241776,1,3241776,1.001710790628347,1.001710790628347,True,False,185629.76,366.441,(l.l_shipdate > '1995-03-15'::date),,,,plans/baseline/T09_r3.json
-baseline,T09,3,False,0.1,0,Hash,,,146199,147126,1,147126,1.0063406726448196,1.0063406726448196,True,False,53298.04,159.296,,,,,plans/baseline/T09_r3.json
-baseline,T09,3,False,0.1.0,0.1,Hash Join,,,146199,147126,1,147126,1.0063406726448196,1.0063406726448196,True,False,53298.04,142.39,,,(o.o_custkey = c.c_custkey),,plans/baseline/T09_r3.json
-baseline,T09,3,False,0.1.0.0,0.1.0,Seq Scan,orders,o,728685,727305,1,727305,1.0018974158021738,1.0018974158021738,True,False,45462.0,81.137,(o.o_orderdate < '1995-03-15'::date),,,,plans/baseline/T09_r3.json
-baseline,T09,3,False,0.1.0.1,0.1.0,Hash,,,30095,30142,1,30142,1.001561721216149,1.001561721216149,True,False,5547.0,14.373,,,,,plans/baseline/T09_r3.json
-baseline,T09,3,False,0.1.0.1.0,0.1.0.1,Seq Scan,customer,c,30095,30142,1,30142,1.001561721216149,1.001561721216149,True,False,5547.0,12.15,((c.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T09_r3.json
-reanalyze_control,S13,0,True,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,9.108,(corr_independent.city = 'C00'::text),,,,plans/reanalyze_control/S13_r0.json
-reanalyze_control,S16,0,True,0,,Seq Scan,corr_dependent,corr_dependent,30,3000,1,3000,100.0,100.0,True,False,6122.0,11.674,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S16_r0.json
-reanalyze_control,S19,0,True,0,,Seq Scan,corr_skewed,corr_skewed,8,1515,1,1515,189.375,189.375,True,False,6122.0,11.306,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/reanalyze_control/S19_r0.json
-reanalyze_control,S20,0,True,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,11.184,,,(o.customer_id = c.id),,plans/reanalyze_control/S20_r0.json
-reanalyze_control,S20,0,True,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,10.584,(o.zipcode = 'Z00'::text),,,,plans/reanalyze_control/S20_r0.json
-reanalyze_control,S20,0,True,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,0.326,,,,,plans/reanalyze_control/S20_r0.json
-reanalyze_control,S20,0,True,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,0.315,(c.city = 'C00'::text),,,,plans/reanalyze_control/S20_r0.json
-reanalyze_control,S17,0,True,0,,Seq Scan,corr_dependent,corr_dependent,30,0,1,0,,30.0,True,True,6122.0,9.915,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/reanalyze_control/S17_r0.json
-reanalyze_control,S14,0,True,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,8.961,(corr_dependent.city = 'C00'::text),,,,plans/reanalyze_control/S14_r0.json
-reanalyze_control,S18,0,True,0,,Seq Scan,corr_skewed,corr_skewed,75000,150000,1,150000,2.0,2.0,True,False,6122.0,14.187,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S18_r0.json
-reanalyze_control,S15,0,True,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,9.404,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S15_r0.json
-reanalyze_control,S18,1,False,0,,Seq Scan,corr_skewed,corr_skewed,75000,150000,1,150000,2.0,2.0,True,False,6122.0,13.587,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S18_r1.json
-reanalyze_control,S19,1,False,0,,Seq Scan,corr_skewed,corr_skewed,8,1515,1,1515,189.375,189.375,True,False,6122.0,9.916,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/reanalyze_control/S19_r1.json
-reanalyze_control,S16,1,False,0,,Seq Scan,corr_dependent,corr_dependent,30,3000,1,3000,100.0,100.0,True,False,6122.0,9.733,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S16_r1.json
-reanalyze_control,S14,1,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,9.626,(corr_dependent.city = 'C00'::text),,,,plans/reanalyze_control/S14_r1.json
-reanalyze_control,S15,1,False,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,10.237,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S15_r1.json
-reanalyze_control,S20,1,False,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,13.085,,,(o.customer_id = c.id),,plans/reanalyze_control/S20_r1.json
-reanalyze_control,S20,1,False,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,12.389,(o.zipcode = 'Z00'::text),,,,plans/reanalyze_control/S20_r1.json
-reanalyze_control,S20,1,False,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,0.359,,,,,plans/reanalyze_control/S20_r1.json
-reanalyze_control,S20,1,False,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,0.347,(c.city = 'C00'::text),,,,plans/reanalyze_control/S20_r1.json
-reanalyze_control,S17,1,False,0,,Seq Scan,corr_dependent,corr_dependent,30,0,1,0,,30.0,True,True,6122.0,9.807,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/reanalyze_control/S17_r1.json
-reanalyze_control,S13,1,False,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,9.414,(corr_independent.city = 'C00'::text),,,,plans/reanalyze_control/S13_r1.json
-reanalyze_control,S14,2,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,8.783,(corr_dependent.city = 'C00'::text),,,,plans/reanalyze_control/S14_r2.json
-reanalyze_control,S19,2,False,0,,Seq Scan,corr_skewed,corr_skewed,8,1515,1,1515,189.375,189.375,True,False,6122.0,9.349,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/reanalyze_control/S19_r2.json
-reanalyze_control,S17,2,False,0,,Seq Scan,corr_dependent,corr_dependent,30,0,1,0,,30.0,True,True,6122.0,10.083,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/reanalyze_control/S17_r2.json
-reanalyze_control,S18,2,False,0,,Seq Scan,corr_skewed,corr_skewed,75000,150000,1,150000,2.0,2.0,True,False,6122.0,16.768,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S18_r2.json
-reanalyze_control,S16,2,False,0,,Seq Scan,corr_dependent,corr_dependent,30,3000,1,3000,100.0,100.0,True,False,6122.0,9.554,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S16_r2.json
-reanalyze_control,S20,2,False,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,10.88,,,(o.customer_id = c.id),,plans/reanalyze_control/S20_r2.json
-reanalyze_control,S20,2,False,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,10.284,(o.zipcode = 'Z00'::text),,,,plans/reanalyze_control/S20_r2.json
-reanalyze_control,S20,2,False,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,0.334,,,,,plans/reanalyze_control/S20_r2.json
-reanalyze_control,S20,2,False,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,0.323,(c.city = 'C00'::text),,,,plans/reanalyze_control/S20_r2.json
-reanalyze_control,S13,2,False,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,10.491,(corr_independent.city = 'C00'::text),,,,plans/reanalyze_control/S13_r2.json
-reanalyze_control,S15,2,False,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,10.617,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S15_r2.json
-reanalyze_control,S19,3,False,0,,Seq Scan,corr_skewed,corr_skewed,8,1515,1,1515,189.375,189.375,True,False,6122.0,9.319,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/reanalyze_control/S19_r3.json
-reanalyze_control,S18,3,False,0,,Seq Scan,corr_skewed,corr_skewed,75000,150000,1,150000,2.0,2.0,True,False,6122.0,13.403,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S18_r3.json
-reanalyze_control,S13,3,False,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,9.295,(corr_independent.city = 'C00'::text),,,,plans/reanalyze_control/S13_r3.json
-reanalyze_control,S14,3,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,9.161,(corr_dependent.city = 'C00'::text),,,,plans/reanalyze_control/S14_r3.json
-reanalyze_control,S16,3,False,0,,Seq Scan,corr_dependent,corr_dependent,30,3000,1,3000,100.0,100.0,True,False,6122.0,14.95,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S16_r3.json
-reanalyze_control,S15,3,False,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,9.36,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S15_r3.json
-reanalyze_control,S20,3,False,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,11.569,,,(o.customer_id = c.id),,plans/reanalyze_control/S20_r3.json
-reanalyze_control,S20,3,False,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,10.891,(o.zipcode = 'Z00'::text),,,,plans/reanalyze_control/S20_r3.json
-reanalyze_control,S20,3,False,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,0.371,,,,,plans/reanalyze_control/S20_r3.json
-reanalyze_control,S20,3,False,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,0.359,(c.city = 'C00'::text),,,,plans/reanalyze_control/S20_r3.json
-reanalyze_control,S17,3,False,0,,Seq Scan,corr_dependent,corr_dependent,30,0,1,0,,30.0,True,True,6122.0,9.844,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/reanalyze_control/S17_r3.json
-extended,S13,0,True,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,9.785,(corr_independent.city = 'C00'::text),,,,plans/extended/S13_r0.json
-extended,S16,0,True,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,6122.0,12.336,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/extended/S16_r0.json
-extended,S19,0,True,0,,Seq Scan,corr_skewed,corr_skewed,1515,1515,1,1515,1.0,1.0,True,False,6122.0,9.465,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/extended/S19_r0.json
-extended,S20,0,True,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,13.706,,,(o.customer_id = c.id),,plans/extended/S20_r0.json
-extended,S20,0,True,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,13.017,(o.zipcode = 'Z00'::text),,,,plans/extended/S20_r0.json
-extended,S20,0,True,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,0.349,,,,,plans/extended/S20_r0.json
-extended,S20,0,True,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,0.337,(c.city = 'C00'::text),,,,plans/extended/S20_r0.json
-extended,S17,0,True,0,,Seq Scan,corr_dependent,corr_dependent,1,0,1,0,,1.0,True,True,6122.0,10.279,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/extended/S17_r0.json
-extended,S14,0,True,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,9.575,(corr_dependent.city = 'C00'::text),,,,plans/extended/S14_r0.json
-extended,S18,0,True,0,,Seq Scan,corr_skewed,corr_skewed,150000,150000,1,150000,1.0,1.0,True,False,6122.0,14.229,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/extended/S18_r0.json
-extended,S15,0,True,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,10.362,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/extended/S15_r0.json
-extended,S18,1,False,0,,Seq Scan,corr_skewed,corr_skewed,150000,150000,1,150000,1.0,1.0,True,False,6122.0,14.028,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/extended/S18_r1.json
-extended,S19,1,False,0,,Seq Scan,corr_skewed,corr_skewed,1515,1515,1,1515,1.0,1.0,True,False,6122.0,12.412,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/extended/S19_r1.json
-extended,S16,1,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,6122.0,9.528,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/extended/S16_r1.json
-extended,S14,1,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,10.788,(corr_dependent.city = 'C00'::text),,,,plans/extended/S14_r1.json
-extended,S15,1,False,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,12.224,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/extended/S15_r1.json
-extended,S20,1,False,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,13.573,,,(o.customer_id = c.id),,plans/extended/S20_r1.json
-extended,S20,1,False,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,12.842,(o.zipcode = 'Z00'::text),,,,plans/extended/S20_r1.json
-extended,S20,1,False,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,0.387,,,,,plans/extended/S20_r1.json
-extended,S20,1,False,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,0.374,(c.city = 'C00'::text),,,,plans/extended/S20_r1.json
-extended,S17,1,False,0,,Seq Scan,corr_dependent,corr_dependent,1,0,1,0,,1.0,True,True,6122.0,12.591,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/extended/S17_r1.json
-extended,S13,1,False,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,10.712,(corr_independent.city = 'C00'::text),,,,plans/extended/S13_r1.json
-extended,S14,2,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,9.208,(corr_dependent.city = 'C00'::text),,,,plans/extended/S14_r2.json
-extended,S19,2,False,0,,Seq Scan,corr_skewed,corr_skewed,1515,1515,1,1515,1.0,1.0,True,False,6122.0,9.366,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/extended/S19_r2.json
-extended,S17,2,False,0,,Seq Scan,corr_dependent,corr_dependent,1,0,1,0,,1.0,True,True,6122.0,10.562,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/extended/S17_r2.json
-extended,S18,2,False,0,,Seq Scan,corr_skewed,corr_skewed,150000,150000,1,150000,1.0,1.0,True,False,6122.0,15.369,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/extended/S18_r2.json
-extended,S16,2,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,6122.0,9.709,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/extended/S16_r2.json
-extended,S20,2,False,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,11.366,,,(o.customer_id = c.id),,plans/extended/S20_r2.json
-extended,S20,2,False,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,10.746,(o.zipcode = 'Z00'::text),,,,plans/extended/S20_r2.json
-extended,S20,2,False,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,0.341,,,,,plans/extended/S20_r2.json
-extended,S20,2,False,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,0.33,(c.city = 'C00'::text),,,,plans/extended/S20_r2.json
-extended,S13,2,False,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,8.928,(corr_independent.city = 'C00'::text),,,,plans/extended/S13_r2.json
-extended,S15,2,False,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,11.878,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/extended/S15_r2.json
-extended,S19,3,False,0,,Seq Scan,corr_skewed,corr_skewed,1515,1515,1,1515,1.0,1.0,True,False,6122.0,9.509,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/extended/S19_r3.json
-extended,S18,3,False,0,,Seq Scan,corr_skewed,corr_skewed,150000,150000,1,150000,1.0,1.0,True,False,6122.0,14.786,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/extended/S18_r3.json
-extended,S13,3,False,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,8.901,(corr_independent.city = 'C00'::text),,,,plans/extended/S13_r3.json
-extended,S14,3,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,9.334,(corr_dependent.city = 'C00'::text),,,,plans/extended/S14_r3.json
-extended,S16,3,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,6122.0,9.761,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/extended/S16_r3.json
-extended,S15,3,False,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,9.668,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/extended/S15_r3.json
-extended,S20,3,False,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,11.174,,,(o.customer_id = c.id),,plans/extended/S20_r3.json
-extended,S20,3,False,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,10.56,(o.zipcode = 'Z00'::text),,,,plans/extended/S20_r3.json
-extended,S20,3,False,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,0.341,,,,,plans/extended/S20_r3.json
-extended,S20,3,False,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,0.329,(c.city = 'C00'::text),,,,plans/extended/S20_r3.json
-extended,S17,3,False,0,,Seq Scan,corr_dependent,corr_dependent,1,0,1,0,,1.0,True,True,6122.0,17.311,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/extended/S17_r3.json
+baseline,T04,0,True,0,,Seq Scan,part,part,1632,1620,1,1620,1.0074074074074073,1.0074074074074073,True,False,7364.0,36.316,((part.p_size >= 1) AND (part.p_size <= 10) AND ((part.p_brand)::text = 'Brand#23'::text)),,,,plans/baseline/T04_r0.json
+baseline,S16,0,True,0,,Seq Scan,corr_dependent,corr_dependent,30,3000,1,3000,100.0,100.0,True,False,6122.0,57.949,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/baseline/S16_r0.json
+baseline,T01,0,True,0,,Seq Scan,orders,orders,737550,729413,1,729413,1.0111555456236727,1.0111555456236727,True,False,45462.0,289.707,((orders.o_orderstatus)::text = 'F'::text),,,,plans/baseline/T01_r0.json
+baseline,T03,0,True,0,,Seq Scan,lineitem,lineitem,921739,909455,1,909455,1.0135069904503247,1.0135069904503247,True,False,200612.44,1013.103,((lineitem.l_shipdate >= '1994-01-01'::date) AND (lineitem.l_shipdate < '1995-01-01'::date)),,,,plans/baseline/T03_r0.json
+baseline,T07,0,True,0,,Hash Join,,,60633,61850,1,61850,1.0200715781834975,1.0200715781834975,True,False,254792.94,2140.519,,,(l.l_orderkey = o.o_orderkey),,plans/baseline/T07_r0.json
+baseline,T07,0,True,0.0,0,Seq Scan,lineitem,l,1626480,1637557,1,1637557,1.0068104126703064,1.0068104126703064,True,False,200612.44,1360.264,((l.l_discount >= 0.05) AND (l.l_discount <= 0.07)),,,,plans/baseline/T07_r0.json
+baseline,T07,0,True,0.1,0,Hash,,,55918,56506,1,56506,1.0105153975464072,1.0105153975464072,True,False,49212.0,272.002,,,,,plans/baseline/T07_r0.json
+baseline,T07,0,True,0.1.0,0.1,Seq Scan,orders,o,55918,56506,1,56506,1.0105153975464072,1.0105153975464072,True,False,49212.0,238.887,((o.o_orderdate >= '1995-01-01'::date) AND (o.o_orderdate < '1995-04-01'::date)),,,,plans/baseline/T07_r0.json
+baseline,T10,0,True,0,,Hash Join,,,106,118,1,118,1.1132075471698113,1.1132075471698113,True,False,9998.49,56.626,,,(ps.ps_suppkey = s.s_suppkey),,plans/baseline/T10_r0.json
+baseline,T10,0,True,0.0,0,Nested Loop,,,2652,2988,1,2988,1.1266968325791855,1.1266968325791855,True,False,9631.46,51.408,,,,,plans/baseline/T10_r0.json
+baseline,T10,0,True,0.0.0,0.0,Seq Scan,part,p,663,747,1,747,1.1266968325791855,1.1266968325791855,True,False,6864.0,43.826,(((p.p_type)::text ~~ '%BRASS'::text) AND (p.p_size = 15)),,,,plans/baseline/T10_r0.json
+baseline,T10,0,True,0.0.1,0.0,Index Only Scan,partsupp,ps,4,4,747,2988,1.0,1.0,True,False,4.13,0.009,,,,(ps.ps_partkey = p.p_partkey),plans/baseline/T10_r0.json
+baseline,T10,0,True,0.1,0,Hash,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,4.488,,,,,plans/baseline/T10_r0.json
+baseline,T10,0,True,0.1.0,0.1,Hash Join,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,4.349,,,(s.s_nationkey = n.n_nationkey),,plans/baseline/T10_r0.json
+baseline,T10,0,True,0.1.0.0,0.1.0,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,1.22,,,,,plans/baseline/T10_r0.json
+baseline,T10,0,True,0.1.0.1,0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.31,0.023,,,,,plans/baseline/T10_r0.json
+baseline,T10,0,True,0.1.0.1.0,0.1.0.1,Seq Scan,nation,n,1,1,1,1,1.0,1.0,True,False,1.31,0.014,((n.n_name)::text = 'GERMANY'::text),,,,plans/baseline/T10_r0.json
+baseline,T09,0,True,0,,Hash Join,,,315018,30519,1,30519,10.32202890002949,10.32202890002949,True,False,256034.79,2420.437,,,(l.l_orderkey = o.o_orderkey),,plans/baseline/T09_r0.json
+baseline,T09,0,True,0.0,0,Seq Scan,lineitem,l,3236751,3241776,1,3241776,1.001552482721099,1.001552482721099,True,False,185611.7,1099.722,(l.l_shipdate > '1995-03-15'::date),,,,plans/baseline/T09_r0.json
+baseline,T09,0,True,0.1,0,Hash,,,145988,147126,1,147126,1.0077951612461298,1.0077951612461298,True,False,53310.25,672.183,,,,,plans/baseline/T09_r0.json
+baseline,T09,0,True,0.1.0,0.1,Hash Join,,,145988,147126,1,147126,1.0077951612461298,1.0077951612461298,True,False,53310.25,594.201,,,(o.o_custkey = c.c_custkey),,plans/baseline/T09_r0.json
+baseline,T09,0,True,0.1.0.0,0.1.0,Seq Scan,orders,o,734716,727305,1,727305,1.010189672833268,1.010189672833268,True,False,45462.0,263.332,(o.o_orderdate < '1995-03-15'::date),,,,plans/baseline/T09_r0.json
+baseline,T09,0,True,0.1.0.1,0.1.0,Hash,,,29805,30142,1,30142,1.011306827713471,1.011306827713471,True,False,5547.0,60.187,,,,,plans/baseline/T09_r0.json
+baseline,T09,0,True,0.1.0.1.0,0.1.0.1,Seq Scan,customer,c,29805,30142,1,30142,1.011306827713471,1.011306827713471,True,False,5547.0,50.928,((c.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T09_r0.json
+baseline,S15,0,True,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,50.356,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/baseline/S15_r0.json
+baseline,S19,0,True,0,,Seq Scan,corr_skewed,corr_skewed,8,1515,1,1515,189.375,189.375,True,False,6122.0,49.243,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/baseline/S19_r0.json
+baseline,S14,0,True,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,53.428,(corr_dependent.city = 'C00'::text),,,,plans/baseline/S14_r0.json
+baseline,T08,0,True,0,,Hash Join,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,2.424,,,(s.s_nationkey = n.n_nationkey),,plans/baseline/T08_r0.json
+baseline,T08,0,True,0.0,0,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,1.032,,,,,plans/baseline/T08_r0.json
+baseline,T08,0,True,0.1,0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.31,0.026,,,,,plans/baseline/T08_r0.json
+baseline,T08,0,True,0.1.0,0.1,Seq Scan,nation,n,1,1,1,1,1.0,1.0,True,False,1.31,0.014,((n.n_name)::text = 'GERMANY'::text),,,,plans/baseline/T08_r0.json
+baseline,T11,0,True,0,,Nested Loop,,,186601,184082,1,184082,1.0136841190339088,1.0136841190339088,True,False,113061.39,1811.324,,,,,plans/baseline/T11_r0.json
+baseline,T11,0,True,0.0,0,Nested Loop,,,46648,46008,1,46008,1.0139106242392628,1.0139106242392628,True,False,53840.21,1111.854,,,,,plans/baseline/T11_r0.json
+baseline,T11,0,True,0.0.0,0.0,Hash Join,,,30000,30183,1,30183,1.0061,1.0061,True,False,6037.01,89.486,,,(c.c_nationkey = n.n_nationkey),,plans/baseline/T11_r0.json
+baseline,T11,0,True,0.0.0.0,0.0.0,Seq Scan,customer,c,150000,150000,1,150000,1.0,1.0,True,False,5172.0,40.569,,,,,plans/baseline/T11_r0.json
+baseline,T11,0,True,0.0.0.1,0.0.0,Hash,,,5,5,1,5,1.0,1.0,True,False,2.45,0.101,,,,,plans/baseline/T11_r0.json
+baseline,T11,0,True,0.0.0.1.0,0.0.0.1,Hash Join,,,5,5,1,5,1.0,1.0,True,False,2.45,0.092,,,(n.n_regionkey = r.r_regionkey),,plans/baseline/T11_r0.json
+baseline,T11,0,True,0.0.0.1.0.0,0.0.0.1.0,Seq Scan,nation,n,25,25,1,25,1.0,1.0,True,False,1.25,0.01,,,,,plans/baseline/T11_r0.json
+baseline,T11,0,True,0.0.0.1.0.1,0.0.0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.06,0.033,,,,,plans/baseline/T11_r0.json
+baseline,T11,0,True,0.0.0.1.0.1.0,0.0.0.1.0.1,Seq Scan,region,r,1,1,1,1,1.0,1.0,True,False,1.06,0.017,((r.r_name)::text = 'ASIA'::text),,,,plans/baseline/T11_r0.json
+baseline,T11,0,True,0.0.1,0.0,Index Scan,orders,o,3,2,30183,60366,1.5,1.5,True,False,1.56,0.033,((o.o_orderdate >= '1994-01-01'::date) AND (o.o_orderdate < '1995-01-01'::date)),,,(o.o_custkey = c.c_custkey),plans/baseline/T11_r0.json
+baseline,T11,0,True,0.1,0,Index Only Scan,lineitem,l,16,4,46008,184032,4.0,4.0,True,False,1.11,0.014,,,,(l.l_orderkey = o.o_orderkey),plans/baseline/T11_r0.json
+baseline,T02,0,True,0,,Seq Scan,orders,orders,18842,19472,1,19472,1.0334359409829106,1.0334359409829106,True,False,49212.0,331.571,((orders.o_orderdate >= '1995-01-01'::date) AND (orders.o_orderdate < '1995-02-01'::date)),,,,plans/baseline/T02_r0.json
+baseline,S20,0,True,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,38.368,,,(o.customer_id = c.id),,plans/baseline/S20_r0.json
+baseline,S20,0,True,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,36.178,(o.zipcode = 'Z00'::text),,,,plans/baseline/S20_r0.json
+baseline,S20,0,True,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,1.245,,,,,plans/baseline/S20_r0.json
+baseline,S20,0,True,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,1.2,(c.city = 'C00'::text),,,,plans/baseline/S20_r0.json
+baseline,S17,0,True,0,,Seq Scan,corr_dependent,corr_dependent,30,0,1,0,,30.0,True,True,6122.0,63.597,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/baseline/S17_r0.json
+baseline,S13,0,True,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,62.745,(corr_independent.city = 'C00'::text),,,,plans/baseline/S13_r0.json
+baseline,T12,0,True,0,,Hash Join,,,7464,7243,1,7243,1.0305122186939113,1.0305122186939113,True,False,202957.26,2109.806,,,((c.c_nationkey = s.s_nationkey) AND (l.l_suppkey = s.s_suppkey)),,plans/baseline/T12_r0.json
+baseline,T12,0,True,0.0,0,Nested Loop,,,186601,184082,1,184082,1.0136841190339088,1.0136841190339088,True,False,201508.59,2013.588,,,,,plans/baseline/T12_r0.json
+baseline,T12,0,True,0.0.0,0.0,Nested Loop,,,46648,46008,1,46008,1.0139106242392628,1.0139106242392628,True,False,53840.21,1115.398,,,,,plans/baseline/T12_r0.json
+baseline,T12,0,True,0.0.0.0,0.0.0,Hash Join,,,30000,30183,1,30183,1.0061,1.0061,True,False,6037.01,88.014,,,(c.c_nationkey = n.n_nationkey),,plans/baseline/T12_r0.json
+baseline,T12,0,True,0.0.0.0.0,0.0.0.0,Seq Scan,customer,c,150000,150000,1,150000,1.0,1.0,True,False,5172.0,41.309,,,,,plans/baseline/T12_r0.json
+baseline,T12,0,True,0.0.0.0.1,0.0.0.0,Hash,,,5,5,1,5,1.0,1.0,True,False,2.45,0.119,,,,,plans/baseline/T12_r0.json
+baseline,T12,0,True,0.0.0.0.1.0,0.0.0.0.1,Hash Join,,,5,5,1,5,1.0,1.0,True,False,2.45,0.112,,,(n.n_regionkey = r.r_regionkey),,plans/baseline/T12_r0.json
+baseline,T12,0,True,0.0.0.0.1.0.0,0.0.0.0.1.0,Seq Scan,nation,n,25,25,1,25,1.0,1.0,True,False,1.25,0.032,,,,,plans/baseline/T12_r0.json
+baseline,T12,0,True,0.0.0.0.1.0.1,0.0.0.0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.06,0.044,,,,,plans/baseline/T12_r0.json
+baseline,T12,0,True,0.0.0.0.1.0.1.0,0.0.0.0.1.0.1,Seq Scan,region,r,1,1,1,1,1.0,1.0,True,False,1.06,0.03,((r.r_name)::text = 'ASIA'::text),,,,plans/baseline/T12_r0.json
+baseline,T12,0,True,0.0.0.1,0.0.0,Index Scan,orders,o,3,2,30183,60366,1.5,1.5,True,False,1.56,0.033,((o.o_orderdate >= '1994-01-01'::date) AND (o.o_orderdate < '1995-01-01'::date)),,,(o.o_custkey = c.c_custkey),plans/baseline/T12_r0.json
+baseline,T12,0,True,0.0.1,0.0,Index Scan,lineitem,l,16,4,46008,184032,4.0,4.0,True,False,3.01,0.018,,,,(l.l_orderkey = o.o_orderkey),plans/baseline/T12_r0.json
+baseline,T12,0,True,0.1,0,Hash,,,10000,10000,1,10000,1.0,1.0,True,False,319.0,6.204,,,,,plans/baseline/T12_r0.json
+baseline,T12,0,True,0.1.0,0.1,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,3.479,,,,,plans/baseline/T12_r0.json
+baseline,S18,0,True,0,,Seq Scan,corr_skewed,corr_skewed,75000,150000,1,150000,2.0,2.0,True,False,6122.0,60.013,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/baseline/S18_r0.json
+baseline,T05,0,True,0,,Seq Scan,customer,customer,29805,30142,1,30142,1.011306827713471,1.011306827713471,True,False,5547.0,50.195,((customer.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T05_r0.json
+baseline,T06,0,True,0,,Hash Join,,,298050,303959,1,303959,1.0198255326287535,1.0198255326287535,True,False,51569.17,924.192,,,(o.o_custkey = c.c_custkey),,plans/baseline/T06_r0.json
+baseline,T06,0,True,0.0,0,Seq Scan,orders,o,1500000,1500000,1,1500000,1.0,1.0,True,False,41712.0,241.275,,,,,plans/baseline/T06_r0.json
+baseline,T06,0,True,0.1,0,Hash,,,29805,30142,1,30142,1.011306827713471,1.011306827713471,True,False,5547.0,67.631,,,,,plans/baseline/T06_r0.json
+baseline,T06,0,True,0.1.0,0.1,Seq Scan,customer,c,29805,30142,1,30142,1.011306827713471,1.011306827713471,True,False,5547.0,57.899,((c.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T06_r0.json
+baseline,S13,1,False,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,65.913,(corr_independent.city = 'C00'::text),,,,plans/baseline/S13_r1.json
+baseline,T03,1,False,0,,Seq Scan,lineitem,lineitem,921739,909455,1,909455,1.0135069904503247,1.0135069904503247,True,False,200612.44,1069.311,((lineitem.l_shipdate >= '1994-01-01'::date) AND (lineitem.l_shipdate < '1995-01-01'::date)),,,,plans/baseline/T03_r1.json
+baseline,S18,1,False,0,,Seq Scan,corr_skewed,corr_skewed,75000,150000,1,150000,2.0,2.0,True,False,6122.0,72.075,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/baseline/S18_r1.json
+baseline,T12,1,False,0,,Hash Join,,,7464,7243,1,7243,1.0305122186939113,1.0305122186939113,True,False,202957.26,2158.903,,,((c.c_nationkey = s.s_nationkey) AND (l.l_suppkey = s.s_suppkey)),,plans/baseline/T12_r1.json
+baseline,T12,1,False,0.0,0,Nested Loop,,,186601,184082,1,184082,1.0136841190339088,1.0136841190339088,True,False,201508.59,2058.745,,,,,plans/baseline/T12_r1.json
+baseline,T12,1,False,0.0.0,0.0,Nested Loop,,,46648,46008,1,46008,1.0139106242392628,1.0139106242392628,True,False,53840.21,1165.558,,,,,plans/baseline/T12_r1.json
+baseline,T12,1,False,0.0.0.0,0.0.0,Hash Join,,,30000,30183,1,30183,1.0061,1.0061,True,False,6037.01,85.625,,,(c.c_nationkey = n.n_nationkey),,plans/baseline/T12_r1.json
+baseline,T12,1,False,0.0.0.0.0,0.0.0.0,Seq Scan,customer,c,150000,150000,1,150000,1.0,1.0,True,False,5172.0,34.493,,,,,plans/baseline/T12_r1.json
+baseline,T12,1,False,0.0.0.0.1,0.0.0.0,Hash,,,5,5,1,5,1.0,1.0,True,False,2.45,0.19,,,,,plans/baseline/T12_r1.json
+baseline,T12,1,False,0.0.0.0.1.0,0.0.0.0.1,Hash Join,,,5,5,1,5,1.0,1.0,True,False,2.45,0.182,,,(n.n_regionkey = r.r_regionkey),,plans/baseline/T12_r1.json
+baseline,T12,1,False,0.0.0.0.1.0.0,0.0.0.0.1.0,Seq Scan,nation,n,25,25,1,25,1.0,1.0,True,False,1.25,0.072,,,,,plans/baseline/T12_r1.json
+baseline,T12,1,False,0.0.0.0.1.0.1,0.0.0.0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.06,0.055,,,,,plans/baseline/T12_r1.json
+baseline,T12,1,False,0.0.0.0.1.0.1.0,0.0.0.0.1.0.1,Seq Scan,region,r,1,1,1,1,1.0,1.0,True,False,1.06,0.036,((r.r_name)::text = 'ASIA'::text),,,,plans/baseline/T12_r1.json
+baseline,T12,1,False,0.0.0.1,0.0.0,Index Scan,orders,o,3,2,30183,60366,1.5,1.5,True,False,1.56,0.035,((o.o_orderdate >= '1994-01-01'::date) AND (o.o_orderdate < '1995-01-01'::date)),,,(o.o_custkey = c.c_custkey),plans/baseline/T12_r1.json
+baseline,T12,1,False,0.0.1,0.0,Index Scan,lineitem,l,16,4,46008,184032,4.0,4.0,True,False,3.01,0.018,,,,(l.l_orderkey = o.o_orderkey),plans/baseline/T12_r1.json
+baseline,T12,1,False,0.1,0,Hash,,,10000,10000,1,10000,1.0,1.0,True,False,319.0,6.121,,,,,plans/baseline/T12_r1.json
+baseline,T12,1,False,0.1.0,0.1,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,3.74,,,,,plans/baseline/T12_r1.json
+baseline,T04,1,False,0,,Seq Scan,part,part,1632,1620,1,1620,1.0074074074074073,1.0074074074074073,True,False,7364.0,55.058,((part.p_size >= 1) AND (part.p_size <= 10) AND ((part.p_brand)::text = 'Brand#23'::text)),,,,plans/baseline/T04_r1.json
+baseline,T06,1,False,0,,Hash Join,,,298050,303959,1,303959,1.0198255326287535,1.0198255326287535,True,False,51569.17,950.319,,,(o.o_custkey = c.c_custkey),,plans/baseline/T06_r1.json
+baseline,T06,1,False,0.0,0,Seq Scan,orders,o,1500000,1500000,1,1500000,1.0,1.0,True,False,41712.0,258.593,,,,,plans/baseline/T06_r1.json
+baseline,T06,1,False,0.1,0,Hash,,,29805,30142,1,30142,1.011306827713471,1.011306827713471,True,False,5547.0,54.219,,,,,plans/baseline/T06_r1.json
+baseline,T06,1,False,0.1.0,0.1,Seq Scan,customer,c,29805,30142,1,30142,1.011306827713471,1.011306827713471,True,False,5547.0,45.826,((c.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T06_r1.json
+baseline,T08,1,False,0,,Hash Join,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,5.351,,,(s.s_nationkey = n.n_nationkey),,plans/baseline/T08_r1.json
+baseline,T08,1,False,0.0,0,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,4.074,,,,,plans/baseline/T08_r1.json
+baseline,T08,1,False,0.1,0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.31,0.033,,,,,plans/baseline/T08_r1.json
+baseline,T08,1,False,0.1.0,0.1,Seq Scan,nation,n,1,1,1,1,1.0,1.0,True,False,1.31,0.025,((n.n_name)::text = 'GERMANY'::text),,,,plans/baseline/T08_r1.json
+baseline,S19,1,False,0,,Seq Scan,corr_skewed,corr_skewed,8,1515,1,1515,189.375,189.375,True,False,6122.0,64.655,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/baseline/S19_r1.json
+baseline,S15,1,False,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,56.408,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/baseline/S15_r1.json
+baseline,S14,1,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,62.765,(corr_dependent.city = 'C00'::text),,,,plans/baseline/S14_r1.json
+baseline,T07,1,False,0,,Hash Join,,,60633,61850,1,61850,1.0200715781834975,1.0200715781834975,True,False,254792.94,2209.551,,,(l.l_orderkey = o.o_orderkey),,plans/baseline/T07_r1.json
+baseline,T07,1,False,0.0,0,Seq Scan,lineitem,l,1626480,1637557,1,1637557,1.0068104126703064,1.0068104126703064,True,False,200612.44,1330.34,((l.l_discount >= 0.05) AND (l.l_discount <= 0.07)),,,,plans/baseline/T07_r1.json
+baseline,T07,1,False,0.1,0,Hash,,,55918,56506,1,56506,1.0105153975464072,1.0105153975464072,True,False,49212.0,339.331,,,,,plans/baseline/T07_r1.json
+baseline,T07,1,False,0.1.0,0.1,Seq Scan,orders,o,55918,56506,1,56506,1.0105153975464072,1.0105153975464072,True,False,49212.0,314.0,((o.o_orderdate >= '1995-01-01'::date) AND (o.o_orderdate < '1995-04-01'::date)),,,,plans/baseline/T07_r1.json
+baseline,T10,1,False,0,,Hash Join,,,106,118,1,118,1.1132075471698113,1.1132075471698113,True,False,9998.49,76.519,,,(ps.ps_suppkey = s.s_suppkey),,plans/baseline/T10_r1.json
+baseline,T10,1,False,0.0,0,Nested Loop,,,2652,2988,1,2988,1.1266968325791855,1.1266968325791855,True,False,9631.46,70.53,,,,,plans/baseline/T10_r1.json
+baseline,T10,1,False,0.0.0,0.0,Seq Scan,part,p,663,747,1,747,1.1266968325791855,1.1266968325791855,True,False,6864.0,56.586,(((p.p_type)::text ~~ '%BRASS'::text) AND (p.p_size = 15)),,,,plans/baseline/T10_r1.json
+baseline,T10,1,False,0.0.1,0.0,Index Only Scan,partsupp,ps,4,4,747,2988,1.0,1.0,True,False,4.13,0.017,,,,(ps.ps_partkey = p.p_partkey),plans/baseline/T10_r1.json
+baseline,T10,1,False,0.1,0,Hash,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,5.158,,,,,plans/baseline/T10_r1.json
+baseline,T10,1,False,0.1.0,0.1,Hash Join,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,5.043,,,(s.s_nationkey = n.n_nationkey),,plans/baseline/T10_r1.json
+baseline,T10,1,False,0.1.0.0,0.1.0,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,2.236,,,,,plans/baseline/T10_r1.json
+baseline,T10,1,False,0.1.0.1,0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.31,0.025,,,,,plans/baseline/T10_r1.json
+baseline,T10,1,False,0.1.0.1.0,0.1.0.1,Seq Scan,nation,n,1,1,1,1,1.0,1.0,True,False,1.31,0.018,((n.n_name)::text = 'GERMANY'::text),,,,plans/baseline/T10_r1.json
+baseline,T02,1,False,0,,Seq Scan,orders,orders,18842,19472,1,19472,1.0334359409829106,1.0334359409829106,True,False,49212.0,336.102,((orders.o_orderdate >= '1995-01-01'::date) AND (orders.o_orderdate < '1995-02-01'::date)),,,,plans/baseline/T02_r1.json
+baseline,T09,1,False,0,,Hash Join,,,315018,30519,1,30519,10.32202890002949,10.32202890002949,True,False,256034.79,2831.587,,,(l.l_orderkey = o.o_orderkey),,plans/baseline/T09_r1.json
+baseline,T09,1,False,0.0,0,Seq Scan,lineitem,l,3236751,3241776,1,3241776,1.001552482721099,1.001552482721099,True,False,185611.7,1284.207,(l.l_shipdate > '1995-03-15'::date),,,,plans/baseline/T09_r1.json
+baseline,T09,1,False,0.1,0,Hash,,,145988,147126,1,147126,1.0077951612461298,1.0077951612461298,True,False,53310.25,887.941,,,,,plans/baseline/T09_r1.json
+baseline,T09,1,False,0.1.0,0.1,Hash Join,,,145988,147126,1,147126,1.0077951612461298,1.0077951612461298,True,False,53310.25,801.334,,,(o.o_custkey = c.c_custkey),,plans/baseline/T09_r1.json
+baseline,T09,1,False,0.1.0.0,0.1.0,Seq Scan,orders,o,734716,727305,1,727305,1.010189672833268,1.010189672833268,True,False,45462.0,445.854,(o.o_orderdate < '1995-03-15'::date),,,,plans/baseline/T09_r1.json
+baseline,T09,1,False,0.1.0.1,0.1.0,Hash,,,29805,30142,1,30142,1.011306827713471,1.011306827713471,True,False,5547.0,61.707,,,,,plans/baseline/T09_r1.json
+baseline,T09,1,False,0.1.0.1.0,0.1.0.1,Seq Scan,customer,c,29805,30142,1,30142,1.011306827713471,1.011306827713471,True,False,5547.0,51.273,((c.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T09_r1.json
+baseline,S17,1,False,0,,Seq Scan,corr_dependent,corr_dependent,30,0,1,0,,30.0,True,True,6122.0,64.737,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/baseline/S17_r1.json
+baseline,S16,1,False,0,,Seq Scan,corr_dependent,corr_dependent,30,3000,1,3000,100.0,100.0,True,False,6122.0,58.507,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/baseline/S16_r1.json
+baseline,T05,1,False,0,,Seq Scan,customer,customer,29805,30142,1,30142,1.011306827713471,1.011306827713471,True,False,5547.0,54.137,((customer.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T05_r1.json
+baseline,T11,1,False,0,,Nested Loop,,,186601,184082,1,184082,1.0136841190339088,1.0136841190339088,True,False,113061.39,1587.525,,,,,plans/baseline/T11_r1.json
+baseline,T11,1,False,0.0,0,Nested Loop,,,46648,46008,1,46008,1.0139106242392628,1.0139106242392628,True,False,53840.21,1019.018,,,,,plans/baseline/T11_r1.json
+baseline,T11,1,False,0.0.0,0.0,Hash Join,,,30000,30183,1,30183,1.0061,1.0061,True,False,6037.01,86.471,,,(c.c_nationkey = n.n_nationkey),,plans/baseline/T11_r1.json
+baseline,T11,1,False,0.0.0.0,0.0.0,Seq Scan,customer,c,150000,150000,1,150000,1.0,1.0,True,False,5172.0,36.789,,,,,plans/baseline/T11_r1.json
+baseline,T11,1,False,0.0.0.1,0.0.0,Hash,,,5,5,1,5,1.0,1.0,True,False,2.45,0.151,,,,,plans/baseline/T11_r1.json
+baseline,T11,1,False,0.0.0.1.0,0.0.0.1,Hash Join,,,5,5,1,5,1.0,1.0,True,False,2.45,0.143,,,(n.n_regionkey = r.r_regionkey),,plans/baseline/T11_r1.json
+baseline,T11,1,False,0.0.0.1.0.0,0.0.0.1.0,Seq Scan,nation,n,25,25,1,25,1.0,1.0,True,False,1.25,0.028,,,,,plans/baseline/T11_r1.json
+baseline,T11,1,False,0.0.0.1.0.1,0.0.0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.06,0.064,,,,,plans/baseline/T11_r1.json
+baseline,T11,1,False,0.0.0.1.0.1.0,0.0.0.1.0.1,Seq Scan,region,r,1,1,1,1,1.0,1.0,True,False,1.06,0.046,((r.r_name)::text = 'ASIA'::text),,,,plans/baseline/T11_r1.json
+baseline,T11,1,False,0.0.1,0.0,Index Scan,orders,o,3,2,30183,60366,1.5,1.5,True,False,1.56,0.03,((o.o_orderdate >= '1994-01-01'::date) AND (o.o_orderdate < '1995-01-01'::date)),,,(o.o_custkey = c.c_custkey),plans/baseline/T11_r1.json
+baseline,T11,1,False,0.1,0,Index Only Scan,lineitem,l,16,4,46008,184032,4.0,4.0,True,False,1.11,0.011,,,,(l.l_orderkey = o.o_orderkey),plans/baseline/T11_r1.json
+baseline,S20,1,False,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,51.568,,,(o.customer_id = c.id),,plans/baseline/S20_r1.json
+baseline,S20,1,False,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,49.102,(o.zipcode = 'Z00'::text),,,,plans/baseline/S20_r1.json
+baseline,S20,1,False,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,1.471,,,,,plans/baseline/S20_r1.json
+baseline,S20,1,False,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,1.427,(c.city = 'C00'::text),,,,plans/baseline/S20_r1.json
+baseline,T01,1,False,0,,Seq Scan,orders,orders,737550,729413,1,729413,1.0111555456236727,1.0111555456236727,True,False,45462.0,481.457,((orders.o_orderstatus)::text = 'F'::text),,,,plans/baseline/T01_r1.json
+baseline,T07,2,False,0,,Hash Join,,,60633,61850,1,61850,1.0200715781834975,1.0200715781834975,True,False,254792.94,2306.42,,,(l.l_orderkey = o.o_orderkey),,plans/baseline/T07_r2.json
+baseline,T07,2,False,0.0,0,Seq Scan,lineitem,l,1626480,1637557,1,1637557,1.0068104126703064,1.0068104126703064,True,False,200612.44,1371.832,((l.l_discount >= 0.05) AND (l.l_discount <= 0.07)),,,,plans/baseline/T07_r2.json
+baseline,T07,2,False,0.1,0,Hash,,,55918,56506,1,56506,1.0105153975464072,1.0105153975464072,True,False,49212.0,361.88,,,,,plans/baseline/T07_r2.json
+baseline,T07,2,False,0.1.0,0.1,Seq Scan,orders,o,55918,56506,1,56506,1.0105153975464072,1.0105153975464072,True,False,49212.0,335.661,((o.o_orderdate >= '1995-01-01'::date) AND (o.o_orderdate < '1995-04-01'::date)),,,,plans/baseline/T07_r2.json
+baseline,S20,2,False,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,42.617,,,(o.customer_id = c.id),,plans/baseline/S20_r2.json
+baseline,S20,2,False,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,40.392,(o.zipcode = 'Z00'::text),,,,plans/baseline/S20_r2.json
+baseline,S20,2,False,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,1.194,,,,,plans/baseline/S20_r2.json
+baseline,S20,2,False,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,1.162,(c.city = 'C00'::text),,,,plans/baseline/S20_r2.json
+baseline,T01,2,False,0,,Seq Scan,orders,orders,737550,729413,1,729413,1.0111555456236727,1.0111555456236727,True,False,45462.0,476.076,((orders.o_orderstatus)::text = 'F'::text),,,,plans/baseline/T01_r2.json
+baseline,S19,2,False,0,,Seq Scan,corr_skewed,corr_skewed,8,1515,1,1515,189.375,189.375,True,False,6122.0,79.415,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/baseline/S19_r2.json
+baseline,S15,2,False,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,60.679,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/baseline/S15_r2.json
+baseline,T05,2,False,0,,Seq Scan,customer,customer,29805,30142,1,30142,1.011306827713471,1.011306827713471,True,False,5547.0,47.435,((customer.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T05_r2.json
+baseline,S14,2,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,69.888,(corr_dependent.city = 'C00'::text),,,,plans/baseline/S14_r2.json
+baseline,S18,2,False,0,,Seq Scan,corr_skewed,corr_skewed,75000,150000,1,150000,2.0,2.0,True,False,6122.0,83.383,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/baseline/S18_r2.json
+baseline,T08,2,False,0,,Hash Join,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,4.26,,,(s.s_nationkey = n.n_nationkey),,plans/baseline/T08_r2.json
+baseline,T08,2,False,0.0,0,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,3.185,,,,,plans/baseline/T08_r2.json
+baseline,T08,2,False,0.1,0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.31,0.036,,,,,plans/baseline/T08_r2.json
+baseline,T08,2,False,0.1.0,0.1,Seq Scan,nation,n,1,1,1,1,1.0,1.0,True,False,1.31,0.027,((n.n_name)::text = 'GERMANY'::text),,,,plans/baseline/T08_r2.json
+baseline,T03,2,False,0,,Seq Scan,lineitem,lineitem,921739,909455,1,909455,1.0135069904503247,1.0135069904503247,True,False,200612.44,956.744,((lineitem.l_shipdate >= '1994-01-01'::date) AND (lineitem.l_shipdate < '1995-01-01'::date)),,,,plans/baseline/T03_r2.json
+baseline,T11,2,False,0,,Nested Loop,,,186601,184082,1,184082,1.0136841190339088,1.0136841190339088,True,False,113061.39,1368.144,,,,,plans/baseline/T11_r2.json
+baseline,T11,2,False,0.0,0,Nested Loop,,,46648,46008,1,46008,1.0139106242392628,1.0139106242392628,True,False,53840.21,882.662,,,,,plans/baseline/T11_r2.json
+baseline,T11,2,False,0.0.0,0.0,Hash Join,,,30000,30183,1,30183,1.0061,1.0061,True,False,6037.01,78.57,,,(c.c_nationkey = n.n_nationkey),,plans/baseline/T11_r2.json
+baseline,T11,2,False,0.0.0.0,0.0.0,Seq Scan,customer,c,150000,150000,1,150000,1.0,1.0,True,False,5172.0,33.185,,,,,plans/baseline/T11_r2.json
+baseline,T11,2,False,0.0.0.1,0.0.0,Hash,,,5,5,1,5,1.0,1.0,True,False,2.45,0.237,,,,,plans/baseline/T11_r2.json
+baseline,T11,2,False,0.0.0.1.0,0.0.0.1,Hash Join,,,5,5,1,5,1.0,1.0,True,False,2.45,0.228,,,(n.n_regionkey = r.r_regionkey),,plans/baseline/T11_r2.json
+baseline,T11,2,False,0.0.0.1.0.0,0.0.0.1.0,Seq Scan,nation,n,25,25,1,25,1.0,1.0,True,False,1.25,0.012,,,,,plans/baseline/T11_r2.json
+baseline,T11,2,False,0.0.0.1.0.1,0.0.0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.06,0.169,,,,,plans/baseline/T11_r2.json
+baseline,T11,2,False,0.0.0.1.0.1.0,0.0.0.1.0.1,Seq Scan,region,r,1,1,1,1,1.0,1.0,True,False,1.06,0.141,((r.r_name)::text = 'ASIA'::text),,,,plans/baseline/T11_r2.json
+baseline,T11,2,False,0.0.1,0.0,Index Scan,orders,o,3,2,30183,60366,1.5,1.5,True,False,1.56,0.026,((o.o_orderdate >= '1994-01-01'::date) AND (o.o_orderdate < '1995-01-01'::date)),,,(o.o_custkey = c.c_custkey),plans/baseline/T11_r2.json
+baseline,T11,2,False,0.1,0,Index Only Scan,lineitem,l,16,4,46008,184032,4.0,4.0,True,False,1.11,0.01,,,,(l.l_orderkey = o.o_orderkey),plans/baseline/T11_r2.json
+baseline,S17,2,False,0,,Seq Scan,corr_dependent,corr_dependent,30,0,1,0,,30.0,True,True,6122.0,36.065,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/baseline/S17_r2.json
+baseline,T12,2,False,0,,Hash Join,,,7464,7243,1,7243,1.0305122186939113,1.0305122186939113,True,False,202957.26,2073.027,,,((c.c_nationkey = s.s_nationkey) AND (l.l_suppkey = s.s_suppkey)),,plans/baseline/T12_r2.json
+baseline,T12,2,False,0.0,0,Nested Loop,,,186601,184082,1,184082,1.0136841190339088,1.0136841190339088,True,False,201508.59,1973.925,,,,,plans/baseline/T12_r2.json
+baseline,T12,2,False,0.0.0,0.0,Nested Loop,,,46648,46008,1,46008,1.0139106242392628,1.0139106242392628,True,False,53840.21,1103.212,,,,,plans/baseline/T12_r2.json
+baseline,T12,2,False,0.0.0.0,0.0.0,Hash Join,,,30000,30183,1,30183,1.0061,1.0061,True,False,6037.01,85.177,,,(c.c_nationkey = n.n_nationkey),,plans/baseline/T12_r2.json
+baseline,T12,2,False,0.0.0.0.0,0.0.0.0,Seq Scan,customer,c,150000,150000,1,150000,1.0,1.0,True,False,5172.0,37.491,,,,,plans/baseline/T12_r2.json
+baseline,T12,2,False,0.0.0.0.1,0.0.0.0,Hash,,,5,5,1,5,1.0,1.0,True,False,2.45,0.117,,,,,plans/baseline/T12_r2.json
+baseline,T12,2,False,0.0.0.0.1.0,0.0.0.0.1,Hash Join,,,5,5,1,5,1.0,1.0,True,False,2.45,0.093,,,(n.n_regionkey = r.r_regionkey),,plans/baseline/T12_r2.json
+baseline,T12,2,False,0.0.0.0.1.0.0,0.0.0.0.1.0,Seq Scan,nation,n,25,25,1,25,1.0,1.0,True,False,1.25,0.019,,,,,plans/baseline/T12_r2.json
+baseline,T12,2,False,0.0.0.0.1.0.1,0.0.0.0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.06,0.036,,,,,plans/baseline/T12_r2.json
+baseline,T12,2,False,0.0.0.0.1.0.1.0,0.0.0.0.1.0.1,Seq Scan,region,r,1,1,1,1,1.0,1.0,True,False,1.06,0.023,((r.r_name)::text = 'ASIA'::text),,,,plans/baseline/T12_r2.json
+baseline,T12,2,False,0.0.0.1,0.0.0,Index Scan,orders,o,3,2,30183,60366,1.5,1.5,True,False,1.56,0.033,((o.o_orderdate >= '1994-01-01'::date) AND (o.o_orderdate < '1995-01-01'::date)),,,(o.o_custkey = c.c_custkey),plans/baseline/T12_r2.json
+baseline,T12,2,False,0.0.1,0.0,Index Scan,lineitem,l,16,4,46008,184032,4.0,4.0,True,False,3.01,0.018,,,,(l.l_orderkey = o.o_orderkey),plans/baseline/T12_r2.json
+baseline,T12,2,False,0.1,0,Hash,,,10000,10000,1,10000,1.0,1.0,True,False,319.0,5.993,,,,,plans/baseline/T12_r2.json
+baseline,T12,2,False,0.1.0,0.1,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,3.331,,,,,plans/baseline/T12_r2.json
+baseline,T04,2,False,0,,Seq Scan,part,part,1632,1620,1,1620,1.0074074074074073,1.0074074074074073,True,False,7364.0,54.097,((part.p_size >= 1) AND (part.p_size <= 10) AND ((part.p_brand)::text = 'Brand#23'::text)),,,,plans/baseline/T04_r2.json
+baseline,S16,2,False,0,,Seq Scan,corr_dependent,corr_dependent,30,3000,1,3000,100.0,100.0,True,False,6122.0,58.672,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/baseline/S16_r2.json
+baseline,T09,2,False,0,,Hash Join,,,315018,30519,1,30519,10.32202890002949,10.32202890002949,True,False,256034.79,2688.092,,,(l.l_orderkey = o.o_orderkey),,plans/baseline/T09_r2.json
+baseline,T09,2,False,0.0,0,Seq Scan,lineitem,l,3236751,3241776,1,3241776,1.001552482721099,1.001552482721099,True,False,185611.7,1171.959,(l.l_shipdate > '1995-03-15'::date),,,,plans/baseline/T09_r2.json
+baseline,T09,2,False,0.1,0,Hash,,,145988,147126,1,147126,1.0077951612461298,1.0077951612461298,True,False,53310.25,852.395,,,,,plans/baseline/T09_r2.json
+baseline,T09,2,False,0.1.0,0.1,Hash Join,,,145988,147126,1,147126,1.0077951612461298,1.0077951612461298,True,False,53310.25,773.747,,,(o.o_custkey = c.c_custkey),,plans/baseline/T09_r2.json
+baseline,T09,2,False,0.1.0.0,0.1.0,Seq Scan,orders,o,734716,727305,1,727305,1.010189672833268,1.010189672833268,True,False,45462.0,428.981,(o.o_orderdate < '1995-03-15'::date),,,,plans/baseline/T09_r2.json
+baseline,T09,2,False,0.1.0.1,0.1.0,Hash,,,29805,30142,1,30142,1.011306827713471,1.011306827713471,True,False,5547.0,61.963,,,,,plans/baseline/T09_r2.json
+baseline,T09,2,False,0.1.0.1.0,0.1.0.1,Seq Scan,customer,c,29805,30142,1,30142,1.011306827713471,1.011306827713471,True,False,5547.0,51.044,((c.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T09_r2.json
+baseline,S13,2,False,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,63.501,(corr_independent.city = 'C00'::text),,,,plans/baseline/S13_r2.json
+baseline,T10,2,False,0,,Hash Join,,,106,118,1,118,1.1132075471698113,1.1132075471698113,True,False,9998.49,75.378,,,(ps.ps_suppkey = s.s_suppkey),,plans/baseline/T10_r2.json
+baseline,T10,2,False,0.0,0,Nested Loop,,,2652,2988,1,2988,1.1266968325791855,1.1266968325791855,True,False,9631.46,68.374,,,,,plans/baseline/T10_r2.json
+baseline,T10,2,False,0.0.0,0.0,Seq Scan,part,p,663,747,1,747,1.1266968325791855,1.1266968325791855,True,False,6864.0,54.327,(((p.p_type)::text ~~ '%BRASS'::text) AND (p.p_size = 15)),,,,plans/baseline/T10_r2.json
+baseline,T10,2,False,0.0.1,0.0,Index Only Scan,partsupp,ps,4,4,747,2988,1.0,1.0,True,False,4.13,0.017,,,,(ps.ps_partkey = p.p_partkey),plans/baseline/T10_r2.json
+baseline,T10,2,False,0.1,0,Hash,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,6.001,,,,,plans/baseline/T10_r2.json
+baseline,T10,2,False,0.1.0,0.1,Hash Join,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,5.827,,,(s.s_nationkey = n.n_nationkey),,plans/baseline/T10_r2.json
+baseline,T10,2,False,0.1.0.0,0.1.0,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,4.337,,,,,plans/baseline/T10_r2.json
+baseline,T10,2,False,0.1.0.1,0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.31,0.036,,,,,plans/baseline/T10_r2.json
+baseline,T10,2,False,0.1.0.1.0,0.1.0.1,Seq Scan,nation,n,1,1,1,1,1.0,1.0,True,False,1.31,0.026,((n.n_name)::text = 'GERMANY'::text),,,,plans/baseline/T10_r2.json
+baseline,T02,2,False,0,,Seq Scan,orders,orders,18842,19472,1,19472,1.0334359409829106,1.0334359409829106,True,False,49212.0,257.61,((orders.o_orderdate >= '1995-01-01'::date) AND (orders.o_orderdate < '1995-02-01'::date)),,,,plans/baseline/T02_r2.json
+baseline,T06,2,False,0,,Hash Join,,,298050,303959,1,303959,1.0198255326287535,1.0198255326287535,True,False,51569.17,879.271,,,(o.o_custkey = c.c_custkey),,plans/baseline/T06_r2.json
+baseline,T06,2,False,0.0,0,Seq Scan,orders,o,1500000,1500000,1,1500000,1.0,1.0,True,False,41712.0,250.129,,,,,plans/baseline/T06_r2.json
+baseline,T06,2,False,0.1,0,Hash,,,29805,30142,1,30142,1.011306827713471,1.011306827713471,True,False,5547.0,49.648,,,,,plans/baseline/T06_r2.json
+baseline,T06,2,False,0.1.0,0.1,Seq Scan,customer,c,29805,30142,1,30142,1.011306827713471,1.011306827713471,True,False,5547.0,39.202,((c.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T06_r2.json
+baseline,S19,3,False,0,,Seq Scan,corr_skewed,corr_skewed,8,1515,1,1515,189.375,189.375,True,False,6122.0,54.338,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/baseline/S19_r3.json
+baseline,T03,3,False,0,,Seq Scan,lineitem,lineitem,921739,909455,1,909455,1.0135069904503247,1.0135069904503247,True,False,200612.44,1100.052,((lineitem.l_shipdate >= '1994-01-01'::date) AND (lineitem.l_shipdate < '1995-01-01'::date)),,,,plans/baseline/T03_r3.json
+baseline,T12,3,False,0,,Hash Join,,,7464,7243,1,7243,1.0305122186939113,1.0305122186939113,True,False,202957.26,2238.45,,,((c.c_nationkey = s.s_nationkey) AND (l.l_suppkey = s.s_suppkey)),,plans/baseline/T12_r3.json
+baseline,T12,3,False,0.0,0,Nested Loop,,,186601,184082,1,184082,1.0136841190339088,1.0136841190339088,True,False,201508.59,2126.876,,,,,plans/baseline/T12_r3.json
+baseline,T12,3,False,0.0.0,0.0,Nested Loop,,,46648,46008,1,46008,1.0139106242392628,1.0139106242392628,True,False,53840.21,1209.098,,,,,plans/baseline/T12_r3.json
+baseline,T12,3,False,0.0.0.0,0.0.0,Hash Join,,,30000,30183,1,30183,1.0061,1.0061,True,False,6037.01,89.916,,,(c.c_nationkey = n.n_nationkey),,plans/baseline/T12_r3.json
+baseline,T12,3,False,0.0.0.0.0,0.0.0.0,Seq Scan,customer,c,150000,150000,1,150000,1.0,1.0,True,False,5172.0,37.071,,,,,plans/baseline/T12_r3.json
+baseline,T12,3,False,0.0.0.0.1,0.0.0.0,Hash,,,5,5,1,5,1.0,1.0,True,False,2.45,0.247,,,,,plans/baseline/T12_r3.json
+baseline,T12,3,False,0.0.0.0.1.0,0.0.0.0.1,Hash Join,,,5,5,1,5,1.0,1.0,True,False,2.45,0.238,,,(n.n_regionkey = r.r_regionkey),,plans/baseline/T12_r3.json
+baseline,T12,3,False,0.0.0.0.1.0.0,0.0.0.0.1.0,Seq Scan,nation,n,25,25,1,25,1.0,1.0,True,False,1.25,0.078,,,,,plans/baseline/T12_r3.json
+baseline,T12,3,False,0.0.0.0.1.0.1,0.0.0.0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.06,0.095,,,,,plans/baseline/T12_r3.json
+baseline,T12,3,False,0.0.0.0.1.0.1.0,0.0.0.0.1.0.1,Seq Scan,region,r,1,1,1,1,1.0,1.0,True,False,1.06,0.073,((r.r_name)::text = 'ASIA'::text),,,,plans/baseline/T12_r3.json
+baseline,T12,3,False,0.0.0.1,0.0.0,Index Scan,orders,o,3,2,30183,60366,1.5,1.5,True,False,1.56,0.036,((o.o_orderdate >= '1994-01-01'::date) AND (o.o_orderdate < '1995-01-01'::date)),,,(o.o_custkey = c.c_custkey),plans/baseline/T12_r3.json
+baseline,T12,3,False,0.0.1,0.0,Index Scan,lineitem,l,16,4,46008,184032,4.0,4.0,True,False,3.01,0.019,,,,(l.l_orderkey = o.o_orderkey),plans/baseline/T12_r3.json
+baseline,T12,3,False,0.1,0,Hash,,,10000,10000,1,10000,1.0,1.0,True,False,319.0,10.166,,,,,plans/baseline/T12_r3.json
+baseline,T12,3,False,0.1.0,0.1,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,7.002,,,,,plans/baseline/T12_r3.json
+baseline,T08,3,False,0,,Hash Join,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,5.129,,,(s.s_nationkey = n.n_nationkey),,plans/baseline/T08_r3.json
+baseline,T08,3,False,0.0,0,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,3.855,,,,,plans/baseline/T08_r3.json
+baseline,T08,3,False,0.1,0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.31,0.031,,,,,plans/baseline/T08_r3.json
+baseline,T08,3,False,0.1.0,0.1,Seq Scan,nation,n,1,1,1,1,1.0,1.0,True,False,1.31,0.022,((n.n_name)::text = 'GERMANY'::text),,,,plans/baseline/T08_r3.json
+baseline,T07,3,False,0,,Hash Join,,,60633,61850,1,61850,1.0200715781834975,1.0200715781834975,True,False,254792.94,2275.654,,,(l.l_orderkey = o.o_orderkey),,plans/baseline/T07_r3.json
+baseline,T07,3,False,0.0,0,Seq Scan,lineitem,l,1626480,1637557,1,1637557,1.0068104126703064,1.0068104126703064,True,False,200612.44,1360.2,((l.l_discount >= 0.05) AND (l.l_discount <= 0.07)),,,,plans/baseline/T07_r3.json
+baseline,T07,3,False,0.1,0,Hash,,,55918,56506,1,56506,1.0105153975464072,1.0105153975464072,True,False,49212.0,354.939,,,,,plans/baseline/T07_r3.json
+baseline,T07,3,False,0.1.0,0.1,Seq Scan,orders,o,55918,56506,1,56506,1.0105153975464072,1.0105153975464072,True,False,49212.0,328.547,((o.o_orderdate >= '1995-01-01'::date) AND (o.o_orderdate < '1995-04-01'::date)),,,,plans/baseline/T07_r3.json
+baseline,T04,3,False,0,,Seq Scan,part,part,1632,1620,1,1620,1.0074074074074073,1.0074074074074073,True,False,7364.0,67.74,((part.p_size >= 1) AND (part.p_size <= 10) AND ((part.p_brand)::text = 'Brand#23'::text)),,,,plans/baseline/T04_r3.json
+baseline,T06,3,False,0,,Hash Join,,,298050,303959,1,303959,1.0198255326287535,1.0198255326287535,True,False,51569.17,1003.695,,,(o.o_custkey = c.c_custkey),,plans/baseline/T06_r3.json
+baseline,T06,3,False,0.0,0,Seq Scan,orders,o,1500000,1500000,1,1500000,1.0,1.0,True,False,41712.0,272.601,,,,,plans/baseline/T06_r3.json
+baseline,T06,3,False,0.1,0,Hash,,,29805,30142,1,30142,1.011306827713471,1.011306827713471,True,False,5547.0,59.864,,,,,plans/baseline/T06_r3.json
+baseline,T06,3,False,0.1.0,0.1,Seq Scan,customer,c,29805,30142,1,30142,1.011306827713471,1.011306827713471,True,False,5547.0,49.122,((c.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T06_r3.json
+baseline,S17,3,False,0,,Seq Scan,corr_dependent,corr_dependent,30,0,1,0,,30.0,True,True,6122.0,73.231,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/baseline/S17_r3.json
+baseline,S16,3,False,0,,Seq Scan,corr_dependent,corr_dependent,30,3000,1,3000,100.0,100.0,True,False,6122.0,57.518,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/baseline/S16_r3.json
+baseline,T11,3,False,0,,Nested Loop,,,186601,184082,1,184082,1.0136841190339088,1.0136841190339088,True,False,113061.39,1585.204,,,,,plans/baseline/T11_r3.json
+baseline,T11,3,False,0.0,0,Nested Loop,,,46648,46008,1,46008,1.0139106242392628,1.0139106242392628,True,False,53840.21,1017.053,,,,,plans/baseline/T11_r3.json
+baseline,T11,3,False,0.0.0,0.0,Hash Join,,,30000,30183,1,30183,1.0061,1.0061,True,False,6037.01,88.172,,,(c.c_nationkey = n.n_nationkey),,plans/baseline/T11_r3.json
+baseline,T11,3,False,0.0.0.0,0.0.0,Seq Scan,customer,c,150000,150000,1,150000,1.0,1.0,True,False,5172.0,37.904,,,,,plans/baseline/T11_r3.json
+baseline,T11,3,False,0.0.0.1,0.0.0,Hash,,,5,5,1,5,1.0,1.0,True,False,2.45,0.109,,,,,plans/baseline/T11_r3.json
+baseline,T11,3,False,0.0.0.1.0,0.0.0.1,Hash Join,,,5,5,1,5,1.0,1.0,True,False,2.45,0.103,,,(n.n_regionkey = r.r_regionkey),,plans/baseline/T11_r3.json
+baseline,T11,3,False,0.0.0.1.0.0,0.0.0.1.0,Seq Scan,nation,n,25,25,1,25,1.0,1.0,True,False,1.25,0.017,,,,,plans/baseline/T11_r3.json
+baseline,T11,3,False,0.0.0.1.0.1,0.0.0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.06,0.043,,,,,plans/baseline/T11_r3.json
+baseline,T11,3,False,0.0.0.1.0.1.0,0.0.0.1.0.1,Seq Scan,region,r,1,1,1,1,1.0,1.0,True,False,1.06,0.03,((r.r_name)::text = 'ASIA'::text),,,,plans/baseline/T11_r3.json
+baseline,T11,3,False,0.0.1,0.0,Index Scan,orders,o,3,2,30183,60366,1.5,1.5,True,False,1.56,0.03,((o.o_orderdate >= '1994-01-01'::date) AND (o.o_orderdate < '1995-01-01'::date)),,,(o.o_custkey = c.c_custkey),plans/baseline/T11_r3.json
+baseline,T11,3,False,0.1,0,Index Only Scan,lineitem,l,16,4,46008,184032,4.0,4.0,True,False,1.11,0.012,,,,(l.l_orderkey = o.o_orderkey),plans/baseline/T11_r3.json
+baseline,S15,3,False,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,39.795,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/baseline/S15_r3.json
+baseline,T01,3,False,0,,Seq Scan,orders,orders,737550,729413,1,729413,1.0111555456236727,1.0111555456236727,True,False,45462.0,486.97,((orders.o_orderstatus)::text = 'F'::text),,,,plans/baseline/T01_r3.json
+baseline,S14,3,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,59.517,(corr_dependent.city = 'C00'::text),,,,plans/baseline/S14_r3.json
+baseline,S20,3,False,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,43.884,,,(o.customer_id = c.id),,plans/baseline/S20_r3.json
+baseline,S20,3,False,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,41.508,(o.zipcode = 'Z00'::text),,,,plans/baseline/S20_r3.json
+baseline,S20,3,False,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,1.364,,,,,plans/baseline/S20_r3.json
+baseline,S20,3,False,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,1.326,(c.city = 'C00'::text),,,,plans/baseline/S20_r3.json
+baseline,T02,3,False,0,,Seq Scan,orders,orders,18842,19472,1,19472,1.0334359409829106,1.0334359409829106,True,False,49212.0,334.483,((orders.o_orderdate >= '1995-01-01'::date) AND (orders.o_orderdate < '1995-02-01'::date)),,,,plans/baseline/T02_r3.json
+baseline,T05,3,False,0,,Seq Scan,customer,customer,29805,30142,1,30142,1.011306827713471,1.011306827713471,True,False,5547.0,48.998,((customer.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T05_r3.json
+baseline,S13,3,False,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,66.473,(corr_independent.city = 'C00'::text),,,,plans/baseline/S13_r3.json
+baseline,T10,3,False,0,,Hash Join,,,106,118,1,118,1.1132075471698113,1.1132075471698113,True,False,9998.49,81.495,,,(ps.ps_suppkey = s.s_suppkey),,plans/baseline/T10_r3.json
+baseline,T10,3,False,0.0,0,Nested Loop,,,2652,2988,1,2988,1.1266968325791855,1.1266968325791855,True,False,9631.46,76.516,,,,,plans/baseline/T10_r3.json
+baseline,T10,3,False,0.0.0,0.0,Seq Scan,part,p,663,747,1,747,1.1266968325791855,1.1266968325791855,True,False,6864.0,64.01,(((p.p_type)::text ~~ '%BRASS'::text) AND (p.p_size = 15)),,,,plans/baseline/T10_r3.json
+baseline,T10,3,False,0.0.1,0.0,Index Only Scan,partsupp,ps,4,4,747,2988,1.0,1.0,True,False,4.13,0.015,,,,(ps.ps_partkey = p.p_partkey),plans/baseline/T10_r3.json
+baseline,T10,3,False,0.1,0,Hash,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,4.005,,,,,plans/baseline/T10_r3.json
+baseline,T10,3,False,0.1.0,0.1,Hash Join,,,400,396,1,396,1.0101010101010102,1.0101010101010102,True,False,351.02,3.812,,,(s.s_nationkey = n.n_nationkey),,plans/baseline/T10_r3.json
+baseline,T10,3,False,0.1.0.0,0.1.0,Seq Scan,supplier,s,10000,10000,1,10000,1.0,1.0,True,False,319.0,2.711,,,,,plans/baseline/T10_r3.json
+baseline,T10,3,False,0.1.0.1,0.1.0,Hash,,,1,1,1,1,1.0,1.0,True,False,1.31,0.031,,,,,plans/baseline/T10_r3.json
+baseline,T10,3,False,0.1.0.1.0,0.1.0.1,Seq Scan,nation,n,1,1,1,1,1.0,1.0,True,False,1.31,0.022,((n.n_name)::text = 'GERMANY'::text),,,,plans/baseline/T10_r3.json
+baseline,S18,3,False,0,,Seq Scan,corr_skewed,corr_skewed,75000,150000,1,150000,2.0,2.0,True,False,6122.0,78.65,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/baseline/S18_r3.json
+baseline,T09,3,False,0,,Hash Join,,,315018,30519,1,30519,10.32202890002949,10.32202890002949,True,False,256034.79,2646.692,,,(l.l_orderkey = o.o_orderkey),,plans/baseline/T09_r3.json
+baseline,T09,3,False,0.0,0,Seq Scan,lineitem,l,3236751,3241776,1,3241776,1.001552482721099,1.001552482721099,True,False,185611.7,1257.617,(l.l_shipdate > '1995-03-15'::date),,,,plans/baseline/T09_r3.json
+baseline,T09,3,False,0.1,0,Hash,,,145988,147126,1,147126,1.0077951612461298,1.0077951612461298,True,False,53310.25,731.65,,,,,plans/baseline/T09_r3.json
+baseline,T09,3,False,0.1.0,0.1,Hash Join,,,145988,147126,1,147126,1.0077951612461298,1.0077951612461298,True,False,53310.25,662.924,,,(o.o_custkey = c.c_custkey),,plans/baseline/T09_r3.json
+baseline,T09,3,False,0.1.0.0,0.1.0,Seq Scan,orders,o,734716,727305,1,727305,1.010189672833268,1.010189672833268,True,False,45462.0,362.677,(o.o_orderdate < '1995-03-15'::date),,,,plans/baseline/T09_r3.json
+baseline,T09,3,False,0.1.0.1,0.1.0,Hash,,,29805,30142,1,30142,1.011306827713471,1.011306827713471,True,False,5547.0,59.278,,,,,plans/baseline/T09_r3.json
+baseline,T09,3,False,0.1.0.1.0,0.1.0.1,Seq Scan,customer,c,29805,30142,1,30142,1.011306827713471,1.011306827713471,True,False,5547.0,49.631,((c.c_mktsegment)::text = 'BUILDING'::text),,,,plans/baseline/T09_r3.json
+reanalyze_control,S13,0,True,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,58.698,(corr_independent.city = 'C00'::text),,,,plans/reanalyze_control/S13_r0.json
+reanalyze_control,S16,0,True,0,,Seq Scan,corr_dependent,corr_dependent,30,3000,1,3000,100.0,100.0,True,False,6122.0,101.302,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S16_r0.json
+reanalyze_control,S19,0,True,0,,Seq Scan,corr_skewed,corr_skewed,8,1515,1,1515,189.375,189.375,True,False,6122.0,49.952,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/reanalyze_control/S19_r0.json
+reanalyze_control,S20,0,True,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,47.041,,,(o.customer_id = c.id),,plans/reanalyze_control/S20_r0.json
+reanalyze_control,S20,0,True,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,45.012,(o.zipcode = 'Z00'::text),,,,plans/reanalyze_control/S20_r0.json
+reanalyze_control,S20,0,True,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,1.064,,,,,plans/reanalyze_control/S20_r0.json
+reanalyze_control,S20,0,True,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,1.031,(c.city = 'C00'::text),,,,plans/reanalyze_control/S20_r0.json
+reanalyze_control,S17,0,True,0,,Seq Scan,corr_dependent,corr_dependent,30,0,1,0,,30.0,True,True,6122.0,48.104,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/reanalyze_control/S17_r0.json
+reanalyze_control,S14,0,True,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,60.518,(corr_dependent.city = 'C00'::text),,,,plans/reanalyze_control/S14_r0.json
+reanalyze_control,S18,0,True,0,,Seq Scan,corr_skewed,corr_skewed,75000,150000,1,150000,2.0,2.0,True,False,6122.0,65.792,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S18_r0.json
+reanalyze_control,S15,0,True,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,56.213,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S15_r0.json
+reanalyze_control,S18,1,False,0,,Seq Scan,corr_skewed,corr_skewed,75000,150000,1,150000,2.0,2.0,True,False,6122.0,62.975,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S18_r1.json
+reanalyze_control,S19,1,False,0,,Seq Scan,corr_skewed,corr_skewed,8,1515,1,1515,189.375,189.375,True,False,6122.0,52.369,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/reanalyze_control/S19_r1.json
+reanalyze_control,S16,1,False,0,,Seq Scan,corr_dependent,corr_dependent,30,3000,1,3000,100.0,100.0,True,False,6122.0,52.208,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S16_r1.json
+reanalyze_control,S14,1,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,55.437,(corr_dependent.city = 'C00'::text),,,,plans/reanalyze_control/S14_r1.json
+reanalyze_control,S15,1,False,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,52.771,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S15_r1.json
+reanalyze_control,S20,1,False,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,44.755,,,(o.customer_id = c.id),,plans/reanalyze_control/S20_r1.json
+reanalyze_control,S20,1,False,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,42.358,(o.zipcode = 'Z00'::text),,,,plans/reanalyze_control/S20_r1.json
+reanalyze_control,S20,1,False,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,0.972,,,,,plans/reanalyze_control/S20_r1.json
+reanalyze_control,S20,1,False,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,0.942,(c.city = 'C00'::text),,,,plans/reanalyze_control/S20_r1.json
+reanalyze_control,S17,1,False,0,,Seq Scan,corr_dependent,corr_dependent,30,0,1,0,,30.0,True,True,6122.0,47.941,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/reanalyze_control/S17_r1.json
+reanalyze_control,S13,1,False,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,55.196,(corr_independent.city = 'C00'::text),,,,plans/reanalyze_control/S13_r1.json
+reanalyze_control,S14,2,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,55.308,(corr_dependent.city = 'C00'::text),,,,plans/reanalyze_control/S14_r2.json
+reanalyze_control,S19,2,False,0,,Seq Scan,corr_skewed,corr_skewed,8,1515,1,1515,189.375,189.375,True,False,6122.0,49.014,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/reanalyze_control/S19_r2.json
+reanalyze_control,S17,2,False,0,,Seq Scan,corr_dependent,corr_dependent,30,0,1,0,,30.0,True,True,6122.0,48.837,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/reanalyze_control/S17_r2.json
+reanalyze_control,S18,2,False,0,,Seq Scan,corr_skewed,corr_skewed,75000,150000,1,150000,2.0,2.0,True,False,6122.0,67.413,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S18_r2.json
+reanalyze_control,S16,2,False,0,,Seq Scan,corr_dependent,corr_dependent,30,3000,1,3000,100.0,100.0,True,False,6122.0,47.923,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S16_r2.json
+reanalyze_control,S20,2,False,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,42.019,,,(o.customer_id = c.id),,plans/reanalyze_control/S20_r2.json
+reanalyze_control,S20,2,False,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,39.262,(o.zipcode = 'Z00'::text),,,,plans/reanalyze_control/S20_r2.json
+reanalyze_control,S20,2,False,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,1.779,,,,,plans/reanalyze_control/S20_r2.json
+reanalyze_control,S20,2,False,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,1.731,(c.city = 'C00'::text),,,,plans/reanalyze_control/S20_r2.json
+reanalyze_control,S13,2,False,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,55.475,(corr_independent.city = 'C00'::text),,,,plans/reanalyze_control/S13_r2.json
+reanalyze_control,S15,2,False,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,52.041,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S15_r2.json
+reanalyze_control,S19,3,False,0,,Seq Scan,corr_skewed,corr_skewed,8,1515,1,1515,189.375,189.375,True,False,6122.0,51.119,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/reanalyze_control/S19_r3.json
+reanalyze_control,S18,3,False,0,,Seq Scan,corr_skewed,corr_skewed,75000,150000,1,150000,2.0,2.0,True,False,6122.0,63.711,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S18_r3.json
+reanalyze_control,S13,3,False,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,54.999,(corr_independent.city = 'C00'::text),,,,plans/reanalyze_control/S13_r3.json
+reanalyze_control,S14,3,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,53.874,(corr_dependent.city = 'C00'::text),,,,plans/reanalyze_control/S14_r3.json
+reanalyze_control,S16,3,False,0,,Seq Scan,corr_dependent,corr_dependent,30,3000,1,3000,100.0,100.0,True,False,6122.0,56.926,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S16_r3.json
+reanalyze_control,S15,3,False,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,47.75,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/reanalyze_control/S15_r3.json
+reanalyze_control,S20,3,False,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,48.739,,,(o.customer_id = c.id),,plans/reanalyze_control/S20_r3.json
+reanalyze_control,S20,3,False,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,46.663,(o.zipcode = 'Z00'::text),,,,plans/reanalyze_control/S20_r3.json
+reanalyze_control,S20,3,False,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,1.077,,,,,plans/reanalyze_control/S20_r3.json
+reanalyze_control,S20,3,False,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,1.048,(c.city = 'C00'::text),,,,plans/reanalyze_control/S20_r3.json
+reanalyze_control,S17,3,False,0,,Seq Scan,corr_dependent,corr_dependent,30,0,1,0,,30.0,True,True,6122.0,57.138,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/reanalyze_control/S17_r3.json
+extended,S13,0,True,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,35.363,(corr_independent.city = 'C00'::text),,,,plans/extended/S13_r0.json
+extended,S16,0,True,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,6122.0,34.784,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/extended/S16_r0.json
+extended,S19,0,True,0,,Seq Scan,corr_skewed,corr_skewed,1515,1515,1,1515,1.0,1.0,True,False,6122.0,28.908,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/extended/S19_r0.json
+extended,S20,0,True,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,46.531,,,(o.customer_id = c.id),,plans/extended/S20_r0.json
+extended,S20,0,True,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,44.41,(o.zipcode = 'Z00'::text),,,,plans/extended/S20_r0.json
+extended,S20,0,True,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,1.209,,,,,plans/extended/S20_r0.json
+extended,S20,0,True,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,1.176,(c.city = 'C00'::text),,,,plans/extended/S20_r0.json
+extended,S17,0,True,0,,Seq Scan,corr_dependent,corr_dependent,1,0,1,0,,1.0,True,True,6122.0,31.978,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/extended/S17_r0.json
+extended,S14,0,True,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,28.383,(corr_dependent.city = 'C00'::text),,,,plans/extended/S14_r0.json
+extended,S18,0,True,0,,Seq Scan,corr_skewed,corr_skewed,150000,150000,1,150000,1.0,1.0,True,False,6122.0,43.404,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/extended/S18_r0.json
+extended,S15,0,True,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,26.693,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/extended/S15_r0.json
+extended,S18,1,False,0,,Seq Scan,corr_skewed,corr_skewed,150000,150000,1,150000,1.0,1.0,True,False,6122.0,41.11,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/extended/S18_r1.json
+extended,S19,1,False,0,,Seq Scan,corr_skewed,corr_skewed,1515,1515,1,1515,1.0,1.0,True,False,6122.0,28.437,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/extended/S19_r1.json
+extended,S16,1,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,6122.0,33.834,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/extended/S16_r1.json
+extended,S14,1,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,43.512,(corr_dependent.city = 'C00'::text),,,,plans/extended/S14_r1.json
+extended,S15,1,False,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,29.837,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/extended/S15_r1.json
+extended,S20,1,False,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,43.69,,,(o.customer_id = c.id),,plans/extended/S20_r1.json
+extended,S20,1,False,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,41.464,(o.zipcode = 'Z00'::text),,,,plans/extended/S20_r1.json
+extended,S20,1,False,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,1.262,,,,,plans/extended/S20_r1.json
+extended,S20,1,False,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,1.232,(c.city = 'C00'::text),,,,plans/extended/S20_r1.json
+extended,S17,1,False,0,,Seq Scan,corr_dependent,corr_dependent,1,0,1,0,,1.0,True,True,6122.0,27.535,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/extended/S17_r1.json
+extended,S13,1,False,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,27.283,(corr_independent.city = 'C00'::text),,,,plans/extended/S13_r1.json
+extended,S14,2,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,28.801,(corr_dependent.city = 'C00'::text),,,,plans/extended/S14_r2.json
+extended,S19,2,False,0,,Seq Scan,corr_skewed,corr_skewed,1515,1515,1,1515,1.0,1.0,True,False,6122.0,24.014,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/extended/S19_r2.json
+extended,S17,2,False,0,,Seq Scan,corr_dependent,corr_dependent,1,0,1,0,,1.0,True,True,6122.0,28.351,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/extended/S17_r2.json
+extended,S18,2,False,0,,Seq Scan,corr_skewed,corr_skewed,150000,150000,1,150000,1.0,1.0,True,False,6122.0,37.2,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/extended/S18_r2.json
+extended,S16,2,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,6122.0,29.161,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/extended/S16_r2.json
+extended,S20,2,False,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,37.873,,,(o.customer_id = c.id),,plans/extended/S20_r2.json
+extended,S20,2,False,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,35.599,(o.zipcode = 'Z00'::text),,,,plans/extended/S20_r2.json
+extended,S20,2,False,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,1.243,,,,,plans/extended/S20_r2.json
+extended,S20,2,False,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,1.212,(c.city = 'C00'::text),,,,plans/extended/S20_r2.json
+extended,S13,2,False,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,31.192,(corr_independent.city = 'C00'::text),,,,plans/extended/S13_r2.json
+extended,S15,2,False,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,28.854,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/extended/S15_r2.json
+extended,S19,3,False,0,,Seq Scan,corr_skewed,corr_skewed,1515,1515,1,1515,1.0,1.0,True,False,6122.0,25.538,((corr_skewed.city = 'C42'::text) AND (corr_skewed.zipcode = 'Z42'::text)),,,,plans/extended/S19_r3.json
+extended,S18,3,False,0,,Seq Scan,corr_skewed,corr_skewed,150000,150000,1,150000,1.0,1.0,True,False,6122.0,43.514,((corr_skewed.city = 'C00'::text) AND (corr_skewed.zipcode = 'Z00'::text)),,,,plans/extended/S18_r3.json
+extended,S13,3,False,0,,Seq Scan,corr_independent,corr_independent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,27.301,(corr_independent.city = 'C00'::text),,,,plans/extended/S13_r3.json
+extended,S14,3,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,5372.0,26.643,(corr_dependent.city = 'C00'::text),,,,plans/extended/S14_r3.json
+extended,S16,3,False,0,,Seq Scan,corr_dependent,corr_dependent,3000,3000,1,3000,1.0,1.0,True,False,6122.0,30.821,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z00'::text)),,,,plans/extended/S16_r3.json
+extended,S15,3,False,0,,Seq Scan,corr_independent,corr_independent,30,30,1,30,1.0,1.0,True,False,6122.0,27.483,((corr_independent.city = 'C00'::text) AND (corr_independent.zipcode = 'Z00'::text)),,,,plans/extended/S15_r3.json
+extended,S20,3,False,0,,Hash Join,,,30,3000,1,3000,100.0,100.0,True,False,5551.12,41.895,,,(o.customer_id = c.id),,plans/extended/S20_r3.json
+extended,S20,3,False,0.0,0,Seq Scan,cross_orders,o,3000,3000,1,3000,1.0,1.0,True,False,5372.0,39.488,(o.zipcode = 'Z00'::text),,,,plans/extended/S20_r3.json
+extended,S20,3,False,0.1,0,Hash,,,100,100,1,100,1.0,1.0,True,False,170.0,1.433,,,,,plans/extended/S20_r3.json
+extended,S20,3,False,0.1.0,0.1,Seq Scan,cross_customers,c,100,100,1,100,1.0,1.0,True,False,170.0,1.396,(c.city = 'C00'::text),,,,plans/extended/S20_r3.json
+extended,S17,3,False,0,,Seq Scan,corr_dependent,corr_dependent,1,0,1,0,,1.0,True,True,6122.0,33.272,((corr_dependent.city = 'C00'::text) AND (corr_dependent.zipcode = 'Z01'::text)),,,,plans/extended/S17_r3.json

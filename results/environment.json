@@ -1,8 +1,8 @@
 {
-  "timestamp_shanghai": "2026-10-02T12:45:19.297333+08:00",
+  "timestamp_shanghai": "2026-10-04T18:08:40.479643+08:00",
   "postgresql": "PostgreSQL 17.6 (Debian 17.6-2.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
   "host_platform": "Windows-11-10.0.26200-SP0",
-  "python": "3.12.14",
+  "python": "3.12.15",
   "warmups": 1,
   "measured_repeats": 3,
   "random_seed": 20261002,
